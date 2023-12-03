@@ -14,6 +14,7 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
 		}
 	};
 
+	if (!isOpen) return null;
 	return (
 		<div className={`${styles.overlay} ${isOpen ? styles.open : ""}`} onClick={handleOverlayClick}>
 			<div className={styles.modal}>

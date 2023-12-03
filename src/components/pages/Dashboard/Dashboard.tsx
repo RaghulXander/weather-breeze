@@ -63,7 +63,7 @@ export const Dashboard = () => {
 					))}
 				</AwesomeSlider>
 			)}
-			<Modal isOpen={isModalOpen && !!selectHourSlot} onClick={() => setIsModalOpen(false)}>
+			<Modal isOpen={isModalOpen && !!selectHourSlot} onClose={() => setIsModalOpen(false)}>
 				{selectHourSlot && <InsightViewer data={selectHourSlot} />}
 			</Modal>
 		</div>

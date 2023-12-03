@@ -84,6 +84,8 @@ export const WeatherGrid: React.FC<{ weather: WeatherResponse }> = ({ weather })
 	if (!weather || !currentWeather) return null;
 	const WeatherIcon = getWeatherIconByCode(weather.weather[0].id);
 
+	console.log("currentWeather", currentWeather);
+
 	return (
 		<div className={styles.container}>
 			<div className={styles.header}>

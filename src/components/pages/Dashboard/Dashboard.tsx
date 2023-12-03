@@ -1,25 +1,37 @@
 import { InsightViewer, Modal } from "components/templates";
 import { Loader, WeatherGrid } from "components/atoms";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import AwesomeSlider from "react-awesome-slider";
 import { HourTile } from "../../atoms/HourTile/HourTile";
-import { WeatherResponse } from "store/models/weather.model";
+import { WeatherResponse, Location } from "store/models/weather.model";
 import { getTemperature } from "../../../utils/helper";
 import styles from "./Dashboard.module.scss";
 import { useForecastStore } from "store/forecast";
 import { useWeatherStore } from "store/weather";
+import { useGeolocation } from "hooks/useGeoLocation";
 
 export const Dashboard = () => {
 	const [isModalOpen, setIsModalOpen] = useState<Boolean>(false);
 	const [selectHourSlot, setSelectedSlot] = useState<WeatherResponse | null>(null);
-	const [{ loading, selectedMetric }] = useWeatherStore();
+	const [{ loading, selectedMetric }, weatherActions] = useWeatherStore();
 	const [
 		{
 			state: { forecast },
 			loading: isForecastLoading
-		}
+		},
+		forecastActions
 	] = useForecastStore();
+
+	const { latitude, longitude, locateMe } = useGeolocation();
+
+	useEffect(() => {
+		//console.log("onLocateMeClick", locateMe());
+		//if (latitude && longitude) {
+		//	weatherActions.getWeather({ latitude, longitude } as Location["coords"]);
+		//	forecastActions.getForecast({ latitude, longitude } as Location["coords"]);
+		//}
+	}, [latitude, longitude]);
 
 	const getFormattedTime = (time: string) => {
 		return new Date(time).toLocaleString("en-US", {
@@ -28,7 +40,6 @@ export const Dashboard = () => {
 		});
 	};
 
-	console.log(loading, isForecastLoading);
 	if (loading || isForecastLoading)
 		return (
 			<div className={styles.dashboardContainer}>

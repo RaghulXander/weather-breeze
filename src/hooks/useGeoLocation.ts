@@ -9,11 +9,10 @@ export const useGeolocation = () => {
 		TIMEOUT: 3
 	};
 
-	// adding default values when some browsers block location and page goes blank
-	const [latitude, setLatitude] = useState<number | null>(2.2969234);
-	const [longitude, setLongitude] = useState<number | null>(76.6392175);
+	const [latitude, setLatitude] = useState<number | null>(0);
+	const [longitude, setLongitude] = useState<number | null>(0);
 
-	const onSucess = (response: Location) => {
+	const onSuccess = (response: Location) => {
 		console.log("response", response);
 
 		if (latitude !== response.coords.latitude || longitude !== response.coords.longitude) {
@@ -23,7 +22,7 @@ export const useGeolocation = () => {
 	};
 
 	const retryPermission = useCallback(() => {
-		navigator.geolocation.getCurrentPosition(onSucess, () => {
+		navigator.geolocation.getCurrentPosition(onSuccess, () => {
 			toast.error("An error occurred while retrieving location.");
 		});
 	}, []);
@@ -50,10 +49,24 @@ export const useGeolocation = () => {
 		}
 	};
 
-	const onLocateMeClick = useCallback(
-		() => navigator.geolocation.getCurrentPosition(onSucess, onError),
-		[retryPermission]
-	);
-
-	return { latitude, longitude, onLocateMeClick };
+	const locateMe = useCallback((): Promise<[number | null, number | null]> => {
+		return new Promise((resolve) => {
+			navigator.geolocation.getCurrentPosition(
+				(response: Location) => {
+					console.log("in");
+					if (latitude !== response.coords.latitude || longitude !== response.coords.longitude) {
+						setLatitude(response.coords.latitude);
+						setLongitude(response.coords.longitude);
+					}
+					resolve([response.coords.latitude, response.coords.longitude]);
+				},
+				(error) => {
+					onError(error);
+					// adding default values when some browsers block location and page goes blank
+					resolve([12.3012693, 76.6392175]);
+				}
+			);
+		});
+	}, [latitude, longitude]);
+	return { latitude, longitude, locateMe };
 };

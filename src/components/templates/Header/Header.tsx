@@ -1,6 +1,6 @@
 import { Hamburger, Locate, WeatherLogo } from "icons/Icons";
 import { NavLink } from "react-router-dom";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 import { Location } from "store/models/weather.model";
 import { SearchAutoComplete } from "components/atoms";
@@ -15,14 +15,20 @@ export const Header: React.FC = () => {
 	const [, forecastActions] = useForecastStore();
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const [toggled, setToggled] = useState(selectedMetric === "Fahrenheit");
-	const { latitude, longitude, onLocateMeClick } = useGeolocation();
+	const locationFetched = useRef(false);
+	const { locateMe } = useGeolocation();
 
 	useEffect(() => {
-		if (latitude && longitude) {
-			weatherActions.getWeather({ latitude, longitude } as Location["coords"]);
-			forecastActions.getForecast({ latitude, longitude } as Location["coords"]);
-		}
-	}, [latitude, longitude]);
+		const fetchData = async () => {
+			const [latitude, longitude] = await locateMe();
+			if (latitude && longitude && !locationFetched.current) {
+				weatherActions.getWeather({ latitude, longitude });
+				forecastActions.getForecast({ latitude, longitude });
+				locationFetched.current = true;
+			}
+		};
+		fetchData();
+	}, [locateMe]);
 
 	return (
 		<header className={styles.containerWrapper}>
@@ -43,7 +49,7 @@ export const Header: React.FC = () => {
 						<SearchAutoComplete />
 					</div>
 					<div className={styles.controlActions}>
-						<button className={styles.locateMe} onClick={onLocateMeClick}>
+						<button className={styles.locateMe} onClick={locateMe}>
 							<Locate size={24} color="#fff" />
 							<span>Locate me</span>
 						</button>

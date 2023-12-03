@@ -1,14 +1,13 @@
 export interface StateContext<T> {
 	state: T;
 }
+
+export type Metrics = "Celsius" | "Fahrenheit";
+
 export type Location = {
 	coords: Coords;
 	timestamp: number;
 };
-
-export interface DayData {
-	data: WeatherResponse[]; // An array of objects representing data for each time slot in a day
-}
 
 export type WeatherState = {
 	weather: WeatherResponse | null;

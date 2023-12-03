@@ -1,0 +1,50 @@
+.weather {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  width: 100%;
+  height: auto;
+  overflow: auto;
+
+  .date {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+
+  .temperature {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+
+    img {
+      width: 50px;
+      height: 50px;
+      margin-right: 10px;
+    }
+
+    span {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+  }
+
+  .description {
+    margin-bottom: 10px;
+  }
+
+  .details {
+    font-size: 0.9em;
+
+    div {
+      margin-bottom: 5px;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    width: 100%;
+    max-width: 300px;
+  }
+}

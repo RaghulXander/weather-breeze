@@ -1,6 +1,5 @@
-import React, { useMemo } from "react";
-import styles from "./WeatherGrid.module.scss";
 import {
+	Location,
 	WiCloudDown,
 	WiCloudUp,
 	WiDayWindy,
@@ -8,20 +7,23 @@ import {
 	WiNightClear,
 	WiStrongWind,
 	WiThermometer,
-	WiTime12,
 	WiTime3
 } from "icons/Icons";
-import { useWeatherStore } from "store/weather";
-import SvgWiThermometer from "icons/Icons/weather/WiThermometer";
-import SvgLocation from "icons/Icons/Location";
-import getWeatherIconByCode from "utils/getIconByCode";
-import { WeatherResponse } from "../../../store/models/weather.model";
-import { IconProps } from "icons";
+import React, { useCallback, useMemo } from "react";
 
-export const CurrentWeather: React.FC<{ weather: WeatherResponse }> = ({ weather }) => {
+import { IconProps } from "icons";
+import { WeatherResponse } from "../../../store/models/weather.model";
+import { getTemperature } from "../../../utils/helper";
+import getWeatherIconByCode from "utils/getIconByCode";
+import styles from "./WeatherGrid.module.scss";
+import { useWeatherStore } from "store/weather";
+
+export const WeatherGrid: React.FC<{ weather: WeatherResponse }> = ({ weather }) => {
 	const [
 		{
-			state: { weather: currentWeather }
+			state: { weather: currentWeather },
+			selectedLocation,
+			selectedMetric
 		}
 	] = useWeatherStore();
 
@@ -32,8 +34,8 @@ export const CurrentWeather: React.FC<{ weather: WeatherResponse }> = ({ weather
 		icon: React.ComponentType<IconProps>;
 	};
 
-	function formatDate(date: string) {
-		const options = {
+	const formatDate = useCallback((date: string) => {
+		const options: Intl.DateTimeFormatOptions = {
 			day: "2-digit",
 			weekday: "short",
 			month: "short"
@@ -41,7 +43,14 @@ export const CurrentWeather: React.FC<{ weather: WeatherResponse }> = ({ weather
 
 		const formattedDate = new Date(date).toLocaleDateString("en-US", options);
 		return formattedDate;
-	}
+	}, []);
+
+	const getNestedValue = useCallback((obj: any, accessor: string) => {
+		if (!accessor.includes(".")) return obj[accessor];
+		return accessor
+			.split(".")
+			.reduce((acc: any, key: string) => (acc && acc[key] !== "undefined" ? acc[key] : undefined), obj);
+	}, []);
 
 	const infoItems = useMemo((): Item[] => {
 		return [
@@ -83,8 +92,8 @@ export const CurrentWeather: React.FC<{ weather: WeatherResponse }> = ({ weather
 					{formatDate(weather.dt_txt)}
 				</div>
 				<div className={styles.location}>
-					<SvgLocation size={24} />
-					{currentWeather.name}, {currentWeather.sys.country}
+					<Location size={24} />
+					{currentWeather.name ? `${currentWeather.name}, ${currentWeather.sys.country}` : selectedLocation}
 				</div>
 			</div>
 			<div className={styles.mainContent}>
@@ -93,13 +102,13 @@ export const CurrentWeather: React.FC<{ weather: WeatherResponse }> = ({ weather
 						<div className={styles.block}>
 							<WiThermometer size={48} color="#fff" />
 							<div className={styles.temperature}>
-								{weather.main.temp.toFixed(0)}
+								{getTemperature(weather.main.temp, selectedMetric)}
 								<sup>°</sup>
 							</div>
 						</div>
 						<div className={styles.secondaryInfo}>
 							<div className={styles.feelLike}>
-								Feels like {weather.main.feels_like}
+								Feels like {getTemperature(weather.main.feels_like, selectedMetric)}
 								<sup>°</sup>
 							</div>
 						</div>
@@ -112,16 +121,16 @@ export const CurrentWeather: React.FC<{ weather: WeatherResponse }> = ({ weather
 						<div className={styles.secondaryInfo}>
 							<div className={styles.highLow}>
 								<span>
-									<WiCloudUp size={32} color="#fff" />
+									<WiCloudUp size={40} color="#fff" />
 									<div className={styles.highLowInfo}>
-										{weather.main.temp_max}
+										{getTemperature(weather.main.temp_max, selectedMetric)}
 										<sup>°</sup>
 									</div>
 								</span>
 								<span>
-									<WiCloudDown size={32} color="#fff" />
+									<WiCloudDown size={40} color="#fff" />
 									<div className={styles.highLowInfo}>
-										{weather.main.temp_min}
+										{getTemperature(weather.main.temp_min, selectedMetric)}
 										<sup>°</sup>
 									</div>
 								</span>
@@ -133,15 +142,6 @@ export const CurrentWeather: React.FC<{ weather: WeatherResponse }> = ({ weather
 			<div className={styles.infoContainer}>
 				{infoItems.map((item) => {
 					const Icon = item.icon;
-					const getNestedValue = (obj: any, accessor: string) => {
-						if (!item.accessor.includes(".")) return obj[accessor];
-						return accessor
-							.split(".")
-							.reduce(
-								(acc: any, key: string) => (acc && acc[key] !== "undefined" ? acc[key] : undefined),
-								obj
-							);
-					};
 					return (
 						<div id={item.id} className={styles.item}>
 							<span className={styles.value}>
@@ -157,4 +157,4 @@ export const CurrentWeather: React.FC<{ weather: WeatherResponse }> = ({ weather
 	);
 };
 
-export default CurrentWeather;
+export default WeatherGrid;

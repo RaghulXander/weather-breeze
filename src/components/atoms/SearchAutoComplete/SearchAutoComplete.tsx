@@ -1,10 +1,12 @@
-import { FC, ChangeEvent, useState, KeyboardEvent } from "react";
-import ReactDOM from "react-dom";
-import useClickOutside from "hooks/useClickOutside";
+import React, { KeyboardEvent, useState } from "react";
 import usePlacesAutocomplete, { getGeocode, getLatLng } from "use-places-autocomplete";
+
+import ReactDOM from "react-dom";
+import { Search } from "icons/Icons";
 import styles from "./SearchAutoComplete.module.scss";
-import SvgSearch from "icons/Icons/Search";
-import React from "react";
+import useClickOutside from "hooks/useClickOutside";
+import { useForecastStore } from "store/forecast";
+import { useWeatherStore } from "store/weather";
 
 const acceptedKeys = ["ArrowUp", "ArrowDown", "Escape", "Enter"];
 type Suggestion = google.maps.places.AutocompletePrediction;
@@ -32,9 +34,9 @@ const SuggestionOptions: React.FC<DropdownOptionsProps> = ({
 
 	if (options.length === 0) {
 		optionList = (
-			<div className={styles["suggestionList"]}>
-				<div onMouseLeave={onMouseLeave} role="listbox" className={styles["suggestion"]}>
-					<div className={styles["itemContent"]}>
+			<div className={styles.suggestionList}>
+				<div onMouseLeave={onMouseLeave} role="listbox" className={styles.suggestion}>
+					<div className={styles.itemContent}>
 						<span>No Result found</span>
 					</div>
 				</div>
@@ -43,7 +45,7 @@ const SuggestionOptions: React.FC<DropdownOptionsProps> = ({
 	}
 
 	optionList = (
-		<div className={styles["suggestionList"]}>
+		<div className={styles.suggestionList}>
 			{options.map((option: Suggestion, idx: number) => {
 				const {
 					place_id,
@@ -51,13 +53,14 @@ const SuggestionOptions: React.FC<DropdownOptionsProps> = ({
 				} = option;
 
 				return (
-					<div onMouseLeave={onMouseLeave} role="listbox" className={styles["suggestion"]}>
-						<div
-							className={styles["itemContent"]}
-							key={place_id}
-							onClick={() => onClick(option)}
-							onMouseEnter={() => onMouseEnter(idx)}
-						>
+					<div
+						onMouseLeave={onMouseLeave}
+						onClick={() => onClick(option)}
+						onMouseEnter={() => onMouseEnter(idx)}
+						role="listbox"
+						className={styles.suggestion}
+					>
+						<div className={styles.itemContent} key={place_id}>
 							<span>{main_text}</span>
 							<small>{secondary_text}</small>
 						</div>
@@ -82,7 +85,8 @@ export const SearchAutoComplete = () => {
 		setValue,
 		clearSuggestions
 	} = usePlacesAutocomplete(options);
-
+	const [, weatherActions] = useWeatherStore();
+	const [, forecastActions] = useForecastStore();
 	const portalRoot = document.getElementById("dropdown-portal-root");
 	const hasSuggestions = status === "OK";
 	const [currIndex, setCurrIndex] = useState<number | null>(null);
@@ -121,35 +125,36 @@ export const SearchAutoComplete = () => {
 		setValue(data[nextIndex] ? data[nextIndex].description : cachedVal, false);
 	};
 
-	const handleSelect =
-		({ description }: Suggestion) =>
-		() => {
-			// When user selects a place, we can replace the keyword without request data from API
-			// by setting the second parameter to "false"
-			setValue(description, false);
-			clearSuggestions();
+	const handleSelect = ({ description }: Suggestion) => {
+		// When user selects a place, we can replace the keyword without request data from API
+		// by setting the second parameter to "false"
+		//setValue(description, false);
+		setValue("", false);
+		clearSuggestions();
 
-			// Get latitude and longitude via utility functions
-			getGeocode({ address: description }).then((results) => {
-				const { lat, lng } = getLatLng(results[0]);
-				console.log("Coordinates: ", { lat, lng });
-			});
-		};
+		// Get latitude and longitude via utility functions
+		getGeocode({ address: description }).then((results) => {
+			const { lat, lng } = getLatLng(results[0]);
+			weatherActions.getWeather({ latitude: lat, longitude: lng }, description);
+			forecastActions.getForecast({ latitude: lat, longitude: lng });
+			console.log("Coordinates: ", { lat, lng });
+		});
+	};
 
 	return (
-		<div className={styles["searchContainer"]} ref={dropdownRef}>
-			<div className={styles["inputWrapper"]}>
+		<div className={styles.searchContainer} ref={dropdownRef}>
+			<div className={styles.inputWrapper}>
 				<input
 					type="text"
-					className={styles["input"]}
+					className={styles.input}
 					value={value}
 					onChange={(e) => setValue(e.target.value)}
 					onKeyDown={handleKeyDown}
 					disabled={!ready}
 					placeholder="Search location..."
 				/>
-				<span className={styles["icon"]}>
-					<SvgSearch size={24} color="#AD36CB" />
+				<span className={styles.icon}>
+					<Search size={24} color="#fff" />
 				</span>
 			</div>
 			<div id="dropdown-portal-root" />

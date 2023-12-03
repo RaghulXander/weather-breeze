@@ -1,4 +1,5 @@
 export { default as Dark } from "./Dark";
+export { default as Hamburger } from "./Hamburger";
 export { default as Light } from "./Light";
 export { default as Locate } from "./Locate";
 export { default as Location } from "./Location";

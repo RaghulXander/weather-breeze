@@ -39,7 +39,12 @@ export const Dashboard = () => {
 	return (
 		<div className={styles.dashboardContent}>
 			{forecast.length > 0 && (
-				<AwesomeSlider animation="openAnimation" infinite={false} className={styles.sliderContainer}>
+				<AwesomeSlider
+					animation="openAnimation"
+					infinite={false}
+					bullets={false}
+					className={styles.sliderContainer}
+				>
 					{forecast.map((dayForecast, i) => (
 						<div key={i} className={styles.panelContent}>
 							<WeatherGrid weather={dayForecast[i]} />

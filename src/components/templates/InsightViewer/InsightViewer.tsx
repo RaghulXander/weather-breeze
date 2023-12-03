@@ -63,13 +63,13 @@ export const InsightViewer: React.FC<WeatherComponentProps> = ({ data }) => {
 				</div>
 			</div>
 			<ul className={styles.details}>
-				<li>
+				<li id="feels_like">
 					<strong>Feels like:</strong> {getTemperature(Math.round(data.main.feels_like), selectedMetric)}°
 				</li>
-				<li>
+				<li id="min">
 					<strong>Min Temperature:</strong> {getTemperature(Math.round(data.main.temp_min), selectedMetric)}°
 				</li>
-				<li>
+				<li id="max">
 					<strong>Max Temperature:</strong> {getTemperature(Math.round(data.main.temp_max), selectedMetric)}°
 				</li>
 				<li>
@@ -80,9 +80,6 @@ export const InsightViewer: React.FC<WeatherComponentProps> = ({ data }) => {
 				</li>
 				<li>
 					<strong>Ground Level:</strong> {Math.round(data.main.grnd_level)}°C
-				</li>
-				<li>
-					<strong>Wind:</strong> {Math.round(data.main.speed)} m/s
 				</li>
 				<li>
 					<strong>Humidity:</strong> {Math.round(data.main.humidity)}%

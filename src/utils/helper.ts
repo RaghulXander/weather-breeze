@@ -17,6 +17,9 @@ export const getDataByDay = (forecast: WeatherResponse[]) => {
 };
 
 export const getTemperature = (celsius: number, type: Metrics = "Celsius"): number => {
-	if (type === "Fahrenheit") return ((celsius * 9) / 5 + 32).toFixed(2);
-	return celsius.toFixed(2);
+	if (type === "Fahrenheit") {
+		const fahrenheit = (celsius * 9) / 5 + 32;
+		return parseFloat(fahrenheit.toFixed(2));
+	}
+	return parseFloat(celsius.toFixed(2));
 };

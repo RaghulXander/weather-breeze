@@ -1,72 +1,28 @@
 import { Hamburger, Locate, WeatherLogo } from "icons/Icons";
 import { NavLink } from "react-router-dom";
-import React, { useCallback, useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { Location } from "store/models/weather.model";
 import { SearchAutoComplete } from "components/atoms";
 import Switch from "react-switch";
 import styles from "./Header.module.scss";
-import { toast } from "react-toastify";
 import { useForecastStore } from "store/forecast";
 import { useWeatherStore } from "store/weather";
-
-const ERROR_CODES = {
-	PERMISSION_DENIED: 1,
-	POSITION_UNAVAILABLE: 2,
-	TIMEOUT: 3
-};
+import { useGeolocation } from "hooks/useGeoLocation";
 
 export const Header: React.FC = () => {
 	const [{ selectedMetric }, weatherActions] = useWeatherStore();
 	const [, forecastActions] = useForecastStore();
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const [toggled, setToggled] = useState(selectedMetric === "Fahrenheit");
-	const [latitude, setLatitude] = useState(0);
-	const [longitude, setLongitude] = useState(0);
+	const { latitude, longitude, onLocateMeClick } = useGeolocation();
 
-	const onSucess = (response: Location) => {
-		console.log("response", response);
-
-		if (latitude !== response.coords.latitude || longitude !== response.coords.longitude) {
-			weatherActions.getWeather(response.coords);
-			forecastActions.getForecast(response.coords);
-			setLatitude(response.coords.latitude);
-			setLongitude(response.coords.longitude);
+	useEffect(() => {
+		if (latitude && longitude) {
+			weatherActions.getWeather({ latitude, longitude } as Location["coords"]);
+			forecastActions.getForecast({ latitude, longitude } as Location["coords"]);
 		}
-	};
-
-	const retryPermission = useCallback(() => {
-		navigator.geolocation.getCurrentPosition(onSucess, () => {
-			toast.error("An error occurred while retrieving location.");
-		});
-	}, []);
-
-	const onError = (error: GeolocationPositionError) => {
-		console.error(error);
-		switch (error.code) {
-			case ERROR_CODES.PERMISSION_DENIED:
-				toast.error("Please allow location access and try again by clicking close", {
-					autoClose: false,
-					onClose: () => {
-						navigator.permissions.query({ name: "geolocation" }).then((permissionStatus) => {
-							if (permissionStatus.state !== "denied") retryPermission();
-						});
-					}
-				});
-				break;
-			case ERROR_CODES.POSITION_UNAVAILABLE:
-			case ERROR_CODES.TIMEOUT:
-			default:
-				toast.error(error.message);
-				console.error(error.message);
-				break;
-		}
-	};
-
-	const onLocateMeClick = useCallback(
-		() => navigator.geolocation.getCurrentPosition(onSucess, onError),
-		[retryPermission]
-	);
+	}, [latitude, longitude]);
 
 	return (
 		<header className={styles.containerWrapper}>
@@ -105,7 +61,7 @@ export const Header: React.FC = () => {
 									C <sup>°</sup>
 								</span>
 							}
-							onChange={(checked) => {
+							onChange={(checked: any) => {
 								setToggled(checked);
 								weatherActions.setMetricType(checked ? "Fahrenheit" : "Celsius");
 							}}

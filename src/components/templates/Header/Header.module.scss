@@ -1,88 +1,106 @@
-@import '../../../styles/root';
+@import "../../../styles/root";
 
 .containerWrapper {
-  background: #252323;
+	background: #252323;
 
-  .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: toRem(10) toRem(24);
+	.container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: toRem(10) toRem(24);
 
-    .logo a {
-      display: flex;
-      align-items: center;
-      color: rgb(194, 195, 197);
-      font-size: 1.2rem;
-      text-decoration: none;
-    }
+		.logo a {
+			display: flex;
+			align-items: center;
+			color: rgb(194, 195, 197);
+			font-size: 1.2rem;
+			text-decoration: none;
+		}
 
-    .searchContainer {
-      min-width: toRem(320);
-      max-width: 50%;
-      //position: relative;
-    }
+		.searchContainer {
+			min-width: toRem(320);
+			max-width: 50%;
+			//position: relative;
+		}
 
-    .menuList {
-      list-style: none;
-      display: flex;
+		.menuList {
+			list-style: none;
+			display: flex;
 
-      .menuItem a {
-        margin: 0 toRem($padding2);
-        font-size: toRem($fontSize3);
-        font-style: normal;
-        text-decoration: none;
-        color: $white;
-        line-height: normal;
+			.menuItem a {
+				margin: 0 toRem($padding2);
+				font-size: toRem($fontSize3);
+				font-style: normal;
+				text-decoration: none;
+				color: $white;
+				line-height: normal;
 
-        &.active {
-          font-weight: 700;
-        }
-      }
-    }
-  }
-}
+				&.active {
+					font-weight: 700;
+				}
+			}
+		}
 
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 50px;
-  height: 20px;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  transition: 0.4s;
-  border-radius: 55px;
+		.controlActions {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
 
-  span {
-    position: absolute;
-    height: 16px;
-    width: 18px;
-    left: 2px;
-    top: 2px;
-    transition: 0.4s;
-    border-radius: 44px;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
-    font-size: 1rem;
-    font-weight: 500;
-    display: flex;
+			.locateMe {
+				display: flex;
+				//align-items: center;
+				padding: 0.25rem 0.75rem;
+				text-align: center;
+				border: 1px solid #d9d9d9;
+				border-radius: 0.75rem;
 
-    &.enabled {
-      padding-right: 15px;
-    }
+				background: transparent;
+				//padding: 12px 10px;
+				font-weight: 500;
+				font-size: 0.875rem;
+				cursor: pointer;
+				border: none;
+				outline: none;
+				color: #ad36cb;
+				margin: 0 0.5rem;
 
-    &.disabled {
-      padding-left: 15px;
-    }
-  }
+				svg {
+					fill: #ad36cb;
+				}
 
-  svg {
-    width: 20px;
-    fill: white;
-  }
+				span {
+					padding: 2px 0;
+					margin: 0 2px;
+				}
+
+				&:hover {
+					background-color: #ad36cb;
+					color: #fff;
+
+					svg {
+						fill: #fff;
+					}
+				}
+			}
+
+			.toggleSwitch {
+				position: relative;
+
+				.toggleValue {
+					color: rgb(255, 255, 255);
+					position: absolute;
+					transform: translate(-50%, -50%);
+					top: 11px;
+					left: 50%;
+					font-size: 0.75rem;
+					font-weight: 500;
+					display: flex;
+
+					sup {
+						margin-left: 2px;
+					}
+				}
+			}
+		}
+	}
 }

@@ -1,56 +1,70 @@
 import axios from "axios";
-import { createHook, type StoreActionApi, createStore } from 'react-sweet-state';
-import { type StateContext, WeatherResponse, Coords, WeatherState, ForecastState, DayData } from "./models/weather.model";
+import { createHook, type StoreActionApi, createStore } from "react-sweet-state";
+import {
+	type StateContext,
+	WeatherResponse,
+	Coords,
+	WeatherState,
+	ForecastState,
+	DayData
+} from "./models/weather.model";
 import { getDataByDay } from "utils/helper";
 
 type StateType = StateContext<ForecastState> & {
 	loading: boolean;
-  activeDay: DayData | null;
-  status: string | null;
-  isMounted: boolean;
+	activeDay: DayData | null;
+	status: string | null;
+	isMounted: boolean;
 };
 
 const initialState = (): StateType => ({
 	state: {
-    forecast: [],
+		forecast: []
 	},
-  isMounted: false,
-  status: "",
+	isMounted: false,
+	status: "",
 	activeDay: null,
 	loading: false
 });
 
 const actions = {
-	getForecast: (coord: Coords | string) => async ({ setState, getState }: StoreActionApi<StateType>) => {
-    try {
-      const { state: { forecast }, isMounted } = getState();
+	getForecast:
+		(coord: Coords | string) =>
+		async ({ setState, getState }: StoreActionApi<StateType>) => {
+			try {
+				const {
+					state: { forecast },
+					isMounted
+				} = getState();
 
-      if (!isMounted) {
-        if (typeof coord === 'object') {
-          const response = await axios.get(
-            `https://api.openweathermap.org/data/2.5/forecast?&units=metric&lat=${coord.latitude}&lon=${coord.longitude}&appid=20c4bd51cf84f12ebda1a2d7f69862bc`
-          );
-          setState({
-            ...getState(),
-            isMounted: true,
-            state: { forecast: getDataByDay(response.data.list) },
-          });
-        }
-      } else {
-        //const response = await axios.get(
-        //  `https://api.openweathermap.org/data/2.5/forcast?q=${coord}&units=metric&appid=20c4bd51cf84f12ebda1a2d7f69862bc`
-        //);
-        //const data: WeatherResponse = response.data;
-        //if (data) {
-        //  return data;
-        //} else {
-        //  //return rejectWithValue('rejected');
-        //}
-      }
-    } catch (error: any) {
-      //return rejectWithValue('rejected');
-    }
-  },
+				if (!isMounted) {
+					if (typeof coord === "object") {
+						const response = await axios.get(
+							`https://api.openweathermap.org/data/2.5/forecast?&units=metric&lat=${coord.latitude}&lon=${coord.longitude}&appid=20c4bd51cf84f12ebda1a2d7f69862bc`
+						);
+						setState({
+							...getState(),
+							isMounted: true,
+							state: {
+								forecast: getDataByDay(response.data.list)
+							}
+						});
+					}
+				} else {
+					//const response = await axios.get(
+					//  `https://api.openweathermap.org/data/2.5/forcast?q=${coord}&units=metric&appid=20c4bd51cf84f12ebda1a2d7f69862bc`
+					//);
+					//const data: WeatherResponse = response.data;
+					//if (data) {
+					//  return data;
+					//} else {
+					//  //return rejectWithValue('rejected');
+					//}
+				}
+			} catch (error: any) {
+				//return rejectWithValue('rejected');
+			}
+		}
 	//setEvent:
 	//	(eventId: number | undefined) =>
 	//	async ({ setState, getState }: StoreActionApi<StateType>) => {
@@ -148,7 +162,7 @@ const actions = {
 };
 
 export const ForecastStore = createStore<StateType, typeof actions>({
-	name: 'forecast-store',
+	name: "forecast-store",
 	initialState: initialState(),
 	actions
 });

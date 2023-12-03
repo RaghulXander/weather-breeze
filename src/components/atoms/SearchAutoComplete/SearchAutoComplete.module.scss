@@ -1,189 +1,102 @@
-@import '../../../styles/root';
-
-//.searchContainer {
-//  position: relative;
-//  height: 3.25rem;
-//  border-radius: 26px;
-//  background: #D9D9D9;
-//  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px;
-//  //margin-bottom: 1.4rem;
-//  display: flex;
-//  align-items: center;
-//  z-index: 1;
-
-//  .inputWrapper {
-//    display: flex;
-//    align-items: center;
-//    padding: 0 toRem($padding6);
-//    text-align: center;
-//    border: 1px solid #D9D9D9;
-//    border-radius: toRem($borderRadiusXlg);
-//    background-color: #D9D9D9;
-
-//    .input {
-//      //padding: toRem($padding3) toRem($padding4);
-//      outline: none;
-//      border: none;
-//      //background-color: transparent;
-//      //font-size: toRem(20);
-//      //line-height: 1.5;
-//      flex: 1 1 0%;
-//      margin-left: 1rem;
-//      height: 3.25rem;
-//      border: none;
-//      background-color: #D9D9D9;
-//      font-size: 1.125rem;
-//      color: rgb(114, 126, 142);
-//      width: 100%;
-//    }
-//  }
-
-//  .suggestionWrapper {
-//    //position: absolute;
-//    //margin: 0;
-//    //padding: 0;
-//    //max-height: 60%;
-//    //border: 5 solid;
-//    //border-top: none;
-//    //list-style-type: none;
-//    //text-align: left;
-//    //overflow-y: auto;
-//    //width: 50%;
-//    //top: 7%;
-//    display: flex;
-//    flex-direction: column;
-//    position: absolute;
-//    //box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
-//    width: 98%;
-//    left: 1%;
-//    top: 3.35rem;
-//    border-radius: 5px;
-//    overflow: hidden;
-
-//    .suggestionContainer {
-//      display: flex;
-//      flex-direction: column;
-//      padding: 0;
-//      border: 1px solid #ddd;
-//      border-radius: 20px;
-
-//      .suggestionItem {
-
-//        .itemContent {
-//          display: flex;
-//          flex-direction: column;
-//          margin-left: 0.5rem;
-//          color: #8c8c8c;
-
-//          span {
-//            color: #393939;
-//          }
-//        }
-//      }
-//    }
-//  }
-//}
-
+@import "../../../styles/root";
 
 .searchContainer {
-  //position: relative;
-  height: 2.5rem;
-  border-radius: 26px;
-  background: #fff;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px;
-  //margin-bottom: 1.4rem;
-  //display: flex;
-  //align-items: center;
-  z-index: 1;
+	//position: relative;
+	height: 2.5rem;
+	border-radius: 26px;
+	background: #fff;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px;
+	//margin-bottom: 1.4rem;
+	//display: flex;
+	//align-items: center;
+	z-index: 1;
 
-  .inputWrapper {
-    display: flex;
-    align-items: center;
-    padding: 0 toRem($padding4);
-    text-align: center;
-    border: 1px solid #D9D9D9;
-    border-radius: toRem($borderRadiusLg) toRem($borderRadiusLg);
-    background-color: #fff;
+	.inputWrapper {
+		display: flex;
+		align-items: center;
+		padding: 0 toRem($padding4);
+		text-align: center;
+		border: 1px solid #d9d9d9;
+		border-radius: toRem($borderRadiusLg) toRem($borderRadiusLg);
+		background-color: #fff;
 
+		.input {
+			//padding: toRem($padding3) toRem($padding4);
+			outline: none;
+			border: none;
+			background-color: transparent;
+			//font-size: toRem(20);
+			//line-height: 1.5;
+			flex: 1 1 0%;
+			//margin-left: 0.75rem;
+			height: 2.5rem;
+			border: none;
+			font-size: 1rem;
+			color: rgb(114, 126, 142);
+			width: 100%;
+		}
 
-    .input {
-      //padding: toRem($padding3) toRem($padding4);
-      outline: none;
-      border: none;
-      background-color: transparent;
-      //font-size: toRem(20);
-      //line-height: 1.5;
-      flex: 1 1 0%;
-      //margin-left: 0.75rem;
-      height: 2.5rem;
-      border: none;
-      font-size: 1rem;
-      color: rgb(114, 126, 142);
-      width: 100%;
-    }
-
-    .icon {
-      display: flex;
-    }
-  }
+		.icon {
+			display: flex;
+		}
+	}
 }
 
 .suggestionList {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  z-index: 9999;
-  display: flex;
-  flex-direction: column;
-  padding: 0;
-  border: 1px solid #ddd;
-  border-radius: 12px 12px;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 100%;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	z-index: 9999;
+	display: flex;
+	flex-direction: column;
+	padding: 0;
+	border: 1px solid #ddd;
+	border-radius: 12px 12px;
 
-  .suggestion {
-    color: #2079c9;
-    text-decoration: none;
-    padding: 0.6rem;
-    display: block;
-    text-align: left;
+	.suggestion {
+		text-decoration: none;
+		padding: 0.5rem 0.6rem;
+		display: block;
+		text-align: left;
 
-    cursor: pointer;
-    border-bottom: 1px solid #ddd;
+		cursor: pointer;
+		border-bottom: 1px solid rgb(219, 163, 233);
 
-    &:first-child {
-      border-radius: 0;
-      border-radius: 12px 12px 0 0;
-      //border-top: 1px solid #676767;
-    }
+		&:first-child {
+			border-radius: 0;
+			border-radius: 12px 12px 0 0;
+			//border-top: 1px solid #676767;
+		}
 
-    &:last-child {
-      border-radius: 0 0 12px 12px;
-      border-bottom: 0;
-    }
+		&:last-child {
+			border-radius: 0 0 12px 12px;
+			border-bottom: 0;
+		}
 
-    &:hover {
-      background-color: $lightGrey;
-    }
+		&:hover {
+			background-color: rgb(247, 230, 252);
+		}
 
-    .itemContent {
-      display: flex;
-      flex-direction: column;
-      margin-left: 0.5rem;
-      font-size: 0.875rem;
+		.itemContent {
+			display: flex;
+			flex-direction: column;
+			margin-left: 0.5rem;
+			font-size: 0.875rem;
 
-      span {
-        color: #393939;
-      }
+			span {
+				color: #393939;
+			}
 
-      small {
-        color: #8c8c8c;
-        font-size: 0.675rem;
-        overflow: hidden;
-        text-wrap: nowrap;
-        text-overflow: ellipsis;
-      }
-    }
-  }
+			small {
+				color: #8c8c8c;
+				font-size: 0.675rem;
+				overflow: hidden;
+				text-wrap: nowrap;
+				text-overflow: ellipsis;
+			}
+		}
+	}
 }

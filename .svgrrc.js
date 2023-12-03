@@ -6,16 +6,16 @@ module.exports = {
 		width: "{props.size ?? 16}",
 		height: "{props.size ?? 16}",
 		fill: "{props.color}",
-		className: "{[props.className ? props.className : undefined].join(' ')}",
+		className: "{[props.className ? props.className : undefined].join(' ')}"
 	},
 	replaceAttrValues: {
 		"#000": "{props.color}",
-		"#000000": "{props.color}",
-  },
-  svgoConfig: {
+		"#000000": "{props.color}"
+	},
+	svgoConfig: {
 		plugins: [
 			{
-				name: 'preset-default',
+				name: "preset-default",
 				params: {
 					overrides: {
 						// disable plugins
@@ -35,5 +35,5 @@ module.exports = {
 
 		export default ${componentName};
 	`;
-	},
+	}
 };

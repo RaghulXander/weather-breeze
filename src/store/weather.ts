@@ -1,55 +1,60 @@
 import axios from "axios";
-import { createHook, type StoreActionApi, createStore } from 'react-sweet-state';
-import { type StateContext, WeatherResponse, Coords, WeatherState } from './models/weather.model';
+import { createHook, type StoreActionApi, createStore } from "react-sweet-state";
+import { type StateContext, WeatherResponse, Coords, WeatherState } from "./models/weather.model";
 
 type StateType = StateContext<{ weather: WeatherResponse | null }> & {
 	loading: boolean;
-  currentWeather: WeatherState | null;
-  status: string | null;
-  isMounted: boolean;
+	currentWeather: WeatherState | null;
+	status: string | null;
+	isMounted: boolean;
 };
 
 const initialState = (): StateType => ({
 	state: {
-    weather: null,
+		weather: null
 	},
-  isMounted: false,
-  status: "",
+	isMounted: false,
+	status: "",
 	currentWeather: null,
 	loading: false
 });
 
 const actions = {
-	getWeather: (coord: Coords | string) => async ({ setState, getState }: StoreActionApi<StateType>) => {
-    try {
-      const { state: { weather }, isMounted } = getState();
+	getWeather:
+		(coord: Coords | string) =>
+		async ({ setState, getState }: StoreActionApi<StateType>) => {
+			try {
+				const {
+					state: { weather },
+					isMounted
+				} = getState();
 
-      if (!isMounted) {
-        if (typeof coord === 'object') {
-          const response = await axios.get(
-            `https://api.openweathermap.org/data/2.5/weather?&units=metric&lat=${coord.latitude}&lon=${coord.longitude}&appid=20c4bd51cf84f12ebda1a2d7f69862bc`
-          );
-          setState({
-            ...getState(),
-            isMounted: true,
-            state: { weather: { ...response.data } },
-          });
-        }
-      } else {
-        const response = await axios.get(
-          `https://api.openweathermap.org/data/2.5/weather?q=${coord}&units=metric&appid=20c4bd51cf84f12ebda1a2d7f69862bc`
-        );
-        const data: WeatherResponse = response.data;
-        if (data) {
-          return data;
-        } else {
-          //return rejectWithValue('rejected');
-        }
-      }
-    } catch (error: any) {
-      //return rejectWithValue('rejected');
-    }
-  },
+				if (!isMounted) {
+					if (typeof coord === "object") {
+						const response = await axios.get(
+							`https://api.openweathermap.org/data/2.5/weather?&units=metric&lat=${coord.latitude}&lon=${coord.longitude}&appid=20c4bd51cf84f12ebda1a2d7f69862bc`
+						);
+						setState({
+							...getState(),
+							isMounted: true,
+							state: { weather: { ...response.data } }
+						});
+					}
+				} else {
+					const response = await axios.get(
+						`https://api.openweathermap.org/data/2.5/weather?q=${coord}&units=metric&appid=20c4bd51cf84f12ebda1a2d7f69862bc`
+					);
+					const data: WeatherResponse = response.data;
+					if (data) {
+						return data;
+					} else {
+						//return rejectWithValue('rejected');
+					}
+				}
+			} catch (error: any) {
+				//return rejectWithValue('rejected');
+			}
+		}
 	//setEvent:
 	//	(eventId: number | undefined) =>
 	//	async ({ setState, getState }: StoreActionApi<StateType>) => {
@@ -147,7 +152,7 @@ const actions = {
 };
 
 export const WeatherStore = createStore<StateType, typeof actions>({
-	name: 'weather-store',
+	name: "weather-store",
 	initialState: initialState(),
 	actions
 });

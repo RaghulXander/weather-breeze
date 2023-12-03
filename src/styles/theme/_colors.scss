@@ -1,42 +1,42 @@
 $primaryColor: #1976d2;
 $white: #fff;
-$black: #1E2839;
+$black: #1e2839;
 $lightGrey: #f1f1f1;
-$primaryColor: #6651BA;
+$primaryColor: #6651ba;
 
 // -------- new SuperNova Theme colors starts ---------- //
-$violet: #6651BA;
+$violet: #6651ba;
 $error: #e85347;
 $info: #aa6703;
 $grey: #00000040;
 $white: #fff;
 $button1: #9429b7;
 $button2: #5914c5;
-$button3: #4215A4;
-$background: #E5E5E5;
+$button3: #4215a4;
+$background: #e5e5e5;
 
 $grey100: #111827;
-$grey90: #111827E5;
-$grey80: #111827CC;
-$grey70: #111827B2;
+$grey90: #111827e5;
+$grey80: #111827cc;
+$grey70: #111827b2;
 $grey60: #11182799;
 $grey50: #11182799;
 $grey20: #11182733;
-$grey10: #1118271A;
+$grey10: #1118271a;
 
-$green: #5EFB45;
-$yellow: #FFFDCA;
-$orange: #FFECCC;
-$blue: #0AC2FF;
-$lightblue: #DEF3FA;
-$purple: #C0ACDD;
+$green: #5efb45;
+$yellow: #fffdca;
+$orange: #ffeccc;
+$blue: #0ac2ff;
+$lightblue: #def3fa;
+$purple: #c0acdd;
 $violetDark: #2c1e73;
 
 // to generate gray shades
 
 $black: rgba(17, 24, 39, 0.9);
 
-$grey0: rgba(17, 24, 39, 0.0);
+$grey0: rgba(17, 24, 39, 0);
 $grey1: rgba(17, 24, 39, 0.1);
 $grey2: rgba(17, 24, 39, 0.2);
 $grey3: rgba(17, 24, 39, 0.3);
@@ -47,37 +47,48 @@ $grey7: rgba(17, 24, 39, 0.7);
 $grey8: rgba(17, 24, 39, 0.8);
 $grey9: rgba(17, 24, 39, 0.9);
 
-$primary-color1: #9429B7;
-$primary-color2: #5914C5;
-$primary-color3: #4215A4;
-$primary-color4: #C86EA1;
+$primary-color1: #9429b7;
+$primary-color2: #5914c5;
+$primary-color3: #4215a4;
+$primary-color4: #c86ea1;
 
-$secondary-color1: #B167FE;
-$secondary-color2: #8A1BFE;
-$secondary-color3: #FF4CB0;
-$secondary-color4: #E60080;
-$secondary-color5: #1AB4FF;
-$secondary-color6: #009AE6;
+$secondary-color1: #b167fe;
+$secondary-color2: #8a1bfe;
+$secondary-color3: #ff4cb0;
+$secondary-color4: #e60080;
+$secondary-color5: #1ab4ff;
+$secondary-color6: #009ae6;
 
-$successColor1: #00AACC;
-$successColor2: #00CC88;
+$successColor1: #00aacc;
+$successColor2: #00cc88;
 
-$failureColor1: #FF007F;
-$failureColor2: #FF002B;
+$failureColor1: #ff007f;
+$failureColor2: #ff002b;
 
-$notifyColor1: #CC9900;
-$notifyColor2: #CCCC00;
+$notifyColor1: #cc9900;
+$notifyColor2: #cccc00;
 
 $primaryGradient: linear-gradient(271.33deg, $primary-color1 -7.5%, $primary-color2 79.33%, $primary-color3 101.53%);
 $primaryTextGradient: linear-gradient(275.76deg, $primary-color4 -16.95%, $primary-color3 113.4%);
 
-$secondaryGradient1: linear-gradient(135deg, #B167FE 0%, #8A1BFE 100%);
-$secondaryGradient2: linear-gradient(135deg, #FF4CB0 0%, #E60080 100%);
-$secondaryGradient3: linear-gradient(135deg, #1AB4FF 0%, #009AE6 100%);
+$secondaryGradient1: linear-gradient(135deg, #b167fe 0%, #8a1bfe 100%);
+$secondaryGradient2: linear-gradient(135deg, #ff4cb0 0%, #e60080 100%);
+$secondaryGradient3: linear-gradient(135deg, #1ab4ff 0%, #009ae6 100%);
 
 $successColor: linear-gradient(135deg, $successColor1 0%, $successColor2 100%);
 $failureColor: linear-gradient(135deg, $failureColor1 0%, $failureColor2 100%);
 $notifyColor: linear-gradient(135deg, $notifyColor1 0%, $notifyColor2 100%);
 
-$glassMorphicGradient: linear-gradient(80deg, rgba(91, 41, 171, 0.08), rgba(255, 255, 255, 0.2), rgba(91, 41, 171, 0.05), rgba(255, 255, 255, 0.2));
-$glassMorphicLoginGradient: linear-gradient(-45deg, rgba(148, 41, 183, 0.2), rgba(255, 255, 255, 0.1), rgba(89, 20, 197, 0.1));
+$glassMorphicGradient: linear-gradient(
+	80deg,
+	rgba(91, 41, 171, 0.08),
+	rgba(255, 255, 255, 0.2),
+	rgba(91, 41, 171, 0.05),
+	rgba(255, 255, 255, 0.2)
+);
+$glassMorphicLoginGradient: linear-gradient(
+	-45deg,
+	rgba(148, 41, 183, 0.2),
+	rgba(255, 255, 255, 0.1),
+	rgba(89, 20, 197, 0.1)
+);

@@ -1,9 +1,9 @@
 export { default as Dark } from "./Dark";
 export { default as Light } from "./Light";
+export { default as Locate } from "./Locate";
 export { default as Location } from "./Location";
 export { default as Search } from "./Search";
 export { default as WeatherLogo } from "./WeatherLogo";
-
 
 // weather
 export { default as WiAlien } from "./weather/WiAlien";

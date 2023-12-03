@@ -1,188 +1,190 @@
 @import "../../../styles/root";
 
 .containerWrapper {
-	background: linear-gradient(168deg, rgba(255, 255, 255, 0.18) 0.15%, rgba(255, 255, 255, 0.04) 97.5%);
-	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-	backdrop-filter: blur(20px);
-	z-index: 3;
-	position: relative;
-	transition:
-		background-color 0.3s ease,
-		box-shadow 0.3s ease;
+  background: linear-gradient(168deg, rgba(255, 255, 255, 0.18) 0.15%, rgba(255, 255, 255, 0.04) 97.5%);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(20px);
+  z-index: 3;
+  position: relative;
+  transition:
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
 
-	.container {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		padding: toRem(10) toRem(24);
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: toRem(10) toRem(24);
 
-		.logo a {
-			display: flex;
-			align-items: center;
-			color: rgb(237, 237, 237);
-			font-size: 1.2rem;
-			text-decoration: none;
-		}
+    .logo a {
+      display: flex;
+      align-items: center;
+      color: rgb(237, 237, 237);
+      font-size: 1.2rem;
+      text-decoration: none;
+    }
 
-		.menuContent {
-			flex-grow: 1;
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
+    .menuContent {
+      flex-grow: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
 
-			.searchContainer {
-				min-width: toRem(500);
-				//max-width: 50%;
-				transition: max-width 0.3s ease;
-				flex-grow: 2;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-			}
+      .searchContainer {
+        min-width: toRem(500);
+        //max-width: 50%;
+        transition: max-width 0.3s ease;
+        flex-grow: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
 
-			.controlActions {
-				display: flex;
-				align-items: center;
-				justify-content: space-between;
+      .controlActions {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
 
-				.locateMe {
-					display: flex;
-					padding: 0.25rem 0.75rem;
-					text-align: center;
-					border: 1px solid #d9d9d9;
-					border-radius: 0.75rem;
-					background: transparent;
-					font-weight: 500;
-					font-size: 0.875rem;
-					cursor: pointer;
-					border: none;
-					outline: none;
-					color: #fff;
-					margin: 0 0.5rem;
-					border: 1px solid transparent;
-					transition: color 0.3s ease;
+        .locateMe {
+          display: flex;
+          align-items: center;
+          gap: 0 4px;
+          padding: 0.25rem 0.75rem;
+          text-align: center;
+          border: 1px solid #d9d9d9;
+          border-radius: 0.75rem;
+          background: transparent;
+          font-weight: 500;
+          font-size: 0.875rem;
+          cursor: pointer;
+          border: none;
+          outline: none;
+          color: #fff;
+          margin: 0 0.5rem;
+          border: 1px solid transparent;
+          transition: color 0.3s ease;
 
-					svg {
-						fill: #fff;
-					}
+          svg {
+            fill: #fff;
+          }
 
-					span {
-						padding: 2px 0;
-						margin: 0 2px;
-					}
+          span {
+            padding: 2px 0;
+            margin: 0 2px;
+          }
 
-					&:hover {
-						border: 1px solid #ad36cb;
-						border-radius: 50px;
-						color: #fff;
+          &:hover {
+            border: 1px solid #ad36cb;
+            border-radius: 50px;
+            color: #fff;
 
-						svg {
-							fill: #ad36cb;
-						}
-					}
-				}
+            svg {
+              fill: #ad36cb;
+            }
+          }
+        }
 
-				.toggleSwitch {
-					position: relative;
+        .toggleSwitch {
+          position: relative;
 
-					.toggleValue {
-						color: rgb(255, 255, 255);
-						position: absolute;
-						transform: translate(-50%, -50%);
-						top: 11px;
-						left: 50%;
-						font-size: 0.75rem;
-						font-weight: 500;
-						display: flex;
+          .toggleValue {
+            color: rgb(255, 255, 255);
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 11px;
+            left: 50%;
+            font-size: 0.75rem;
+            font-weight: 500;
+            display: flex;
 
-						sup {
-							margin-left: 2px;
-						}
-					}
-				}
-			}
-		}
+            sup {
+              margin-left: 2px;
+            }
+          }
+        }
+      }
+    }
 
-		.menuToggle {
-			display: none;
-		}
-	}
+    .menuToggle {
+      display: none;
+    }
+  }
 }
 
 @media screen and (max-width: 767px) {
-	.containerWrapper {
-		background: #000;
-		backdrop-filter: blur(0);
+  .containerWrapper {
+    background: #000;
+    backdrop-filter: blur(0);
 
-		.container {
-			padding: 0.25rem 1rem;
+    .container {
+      padding: 0.25rem 1rem;
 
-			.logo a {
-				font-size: 0.875rem;
+      .logo a {
+        font-size: 0.875rem;
 
-				svg {
-					width: 36px;
-				}
-			}
+        svg {
+          width: 36px;
+        }
+      }
 
-			.menuToggle {
-				cursor: pointer;
-				display: flex;
-				align-items: center;
-				margin-right: 0.25rem;
+      .menuToggle {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        margin-right: 0.25rem;
 
-				.toggleIcon {
-					&.open {
-						transform: rotate(90deg);
+        .toggleIcon {
+          &.open {
+            transform: rotate(90deg);
 
-						&:before {
-							transform: rotate(90deg) translate(5px, 0px);
-						}
+            &:before {
+              transform: rotate(90deg) translate(5px, 0px);
+            }
 
-						&:after {
-							transform: rotate(-90deg) translate(5px, 0px);
-						}
-					}
-				}
-			}
+            &:after {
+              transform: rotate(-90deg) translate(5px, 0px);
+            }
+          }
+        }
+      }
 
-			.menuContent {
-				display: none;
-				flex-direction: column;
-				align-items: center;
-				padding: toRem(10) toRem(24);
-				transition: display 0.3s ease;
-				border-top: 1px solid #c1c1c2;
-				opacity: 0;
-				transition:
-					opacity 0.3s ease-out,
-					max-height 0.8s ease-out;
+      .menuContent {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        padding: toRem(10) toRem(24);
+        transition: display 0.3s ease;
+        border-top: 1px solid #c1c1c2;
+        opacity: 0;
+        transition:
+          opacity 0.3s ease-out,
+          max-height 0.8s ease-out;
 
-				&.open {
-					display: flex;
-					opacity: 1;
-					gap: 0.75rem 0;
-					padding: 0.5rem 0.6rem;
-					position: absolute;
-					top: 100%;
-					left: 0;
-					width: 100%;
-					max-height: 120px;
-					box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-					backdrop-filter: blur(20px);
-					background-color: #000;
-				}
+        &.open {
+          display: flex;
+          opacity: 1;
+          gap: 0.75rem 0;
+          padding: 0.5rem 0.6rem;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          max-height: 120px;
+          box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+          backdrop-filter: blur(20px);
+          background-color: #000;
+        }
 
-				.searchContainer {
-					width: 90vw;
-				}
+        .searchContainer {
+          width: 90vw;
+        }
 
-				.controlActions {
-					width: 90vw;
-					z-index: -1;
-					justify-content: space-evenly;
-				}
-			}
-		}
-	}
+        .controlActions {
+          width: 90vw;
+          z-index: -1;
+          justify-content: space-evenly;
+        }
+      }
+    }
+  }
 }

@@ -13,7 +13,7 @@ export const HourTile: React.FC<THourTileProps> = ({ icon, time, weatherUnit, on
 	return (
 		<div className={styles.tileWrapper} onClick={onClick}>
 			<span className={styles.timeText}>{time}</span>
-			<img id="wicon" className={styles.icon} src={iconUrl} alt="Weather icon" />
+			<img id="wicon" className={styles.icon} src={iconUrl} alt="Weather icon" width={50} height={50} />
 			<span className={styles.weather}>
 				{weatherUnit}
 				<sup>°</sup>

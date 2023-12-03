@@ -1,84 +1,85 @@
 @import "theme/colors";
 @import "theme/variables";
 @import "theme/utils";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap');
 
 *,
 *:before,
 *:after {
-	font-family: "Poppins", sans-serif !important;
-	box-sizing: border-box;
+  font-family: "Poppins", sans-serif !important;
+  box-sizing: border-box;
 }
 
 html {
-	font-size: $base-font-size;
-	overflow: hidden;
-	color: var(--PRIMARY_TEXT_COLOR);
+  font-size: $base-font-size;
+  overflow: hidden;
+  color: var(--PRIMARY_TEXT_COLOR);
 }
 
 body {
-	margin: 0;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
-		"Droid Sans", "Helvetica Neue", sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	font-size: 0.885rem !important;
-	box-sizing: border-box;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 0.885rem !important;
+  box-sizing: border-box;
 }
 
 #root {
-	height: 100vh;
-	width: 100vw;
+  height: 100vh;
+  width: 100vw;
 }
 
 // scrollbar
 ::-webkit-scrollbar {
-	width: 6px;
-	height: 6px;
-	margin: 10px;
+  width: 6px;
+  height: 6px;
+  margin: 10px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-	background: rgba(17, 24, 39, 0.05);
-	border-radius: 4px;
+  background: rgba(17, 24, 39, 0.05);
+  border-radius: 4px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-	background: rgba(17, 24, 39, 0.1);
-	border-radius: 4px;
-	cursor: pointer;
+  background: rgba(17, 24, 39, 0.1);
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-	background: rgba(17, 24, 39, 0.2);
+  background: rgba(17, 24, 39, 0.2);
 }
 
 :root {
-	--primaryColor: #{$primaryGradient};
-	--errorColor: #{$error};
-	--infoColor: #{$info};
-	--grey: #{$grey};
-	--backgroundColor: #{$white};
+  --primaryColor: #{$primaryGradient};
+  --errorColor: #{$error};
+  --infoColor: #{$info};
+  --grey: #{$grey};
+  --backgroundColor: #{$white};
 
-	--buttonGradient1: #{$button1};
-	--buttonGradient2: #{$button2};
-	--buttonGradient3: #{$button3};
+  --buttonGradient1: #{$button1};
+  --buttonGradient2: #{$button2};
+  --buttonGradient3: #{$button3};
 
-	--tooltip-text-color: #{$grey8};
-	--tooltip-background-color: #{$white};
-	--tooltip-margin1: 30px;
-	--tooltip-margin2: 10px;
-	--tooltip-arrow-size: 6px;
-	// Background Colors
-	--IMAGE_BACKGROUND: #{$white};
-	--PRIMARY_COLOR: #{$violet};
-	--SIDE_MENU_COLOR: #{$violetDark};
-	// Text Colors
-	--PRIMARY_TEXT_COLOR: #{$black};
-	--PRIMARY_TEXT_COLOR_CONTRAST: #{$white};
-	// Borders
-	--BORDER_LIGHT: #{$lightGrey};
-	--BACKGROUND: #{$background};
+  --tooltip-text-color: #{$grey8};
+  --tooltip-background-color: #{$white};
+  --tooltip-margin1: 30px;
+  --tooltip-margin2: 10px;
+  --tooltip-arrow-size: 6px;
+  // Background Colors
+  --IMAGE_BACKGROUND: #{$white};
+  --PRIMARY_COLOR: #{$violet};
+  --SIDE_MENU_COLOR: #{$violetDark};
+  // Text Colors
+  --PRIMARY_TEXT_COLOR: #{$black};
+  --PRIMARY_TEXT_COLOR_CONTRAST: #{$white};
+  // Borders
+  --BORDER_LIGHT: #{$lightGrey};
+  --BACKGROUND: #{$background};
 }

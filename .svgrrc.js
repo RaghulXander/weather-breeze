@@ -29,7 +29,7 @@ module.exports = {
 		return tpl`
 		// THIS IS AUTO GENERATED
 		import * as React from 'react';
-		import { IconProps } from "..";
+		import { IconProps } from "../../";
 
 		const ${componentName} = (props: IconProps): JSX.Element => ${jsx};
 

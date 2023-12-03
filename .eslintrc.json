@@ -23,11 +23,22 @@
 		"sourceType": "module",
 		"project": "./tsconfig.json"
 	},
-	"plugins": ["react", "@typescript-eslint", "prettier"],
+	"plugins": ["react", "@typescript-eslint", "prettier", "import"],
 	"rules": {
 		"react/react-in-jsx-scope": "off",
 		"react/jsx-uses-react": ["off"],
 		"react/jsx-props-no-spreading": ["warn"],
 		"react/no-unescaped-entities": ["off"]
+	},
+	"settings": {
+		"import/parsers": {
+			"@typescript-eslint/parser": [".ts", ".tsx"]
+		},
+		"import/resolver": {
+			"typescript": {
+				"alwaysTryTypes": true,
+				"project": "tsconfig.json"
+			}
+		}
 	}
 }

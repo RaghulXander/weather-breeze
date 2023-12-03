@@ -1,0 +1,201 @@
+@import '../../../styles/root';
+
+.container {
+  border-radius: 32px;
+  background: linear-gradient(113deg, #AD36CB 32.23%, #333 67.37%);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(255, 250, 250, 0.25), 0px 4px 4px 0px rgba(253, 245, 245, 0.25);
+  border-radius: 15px;
+  padding: 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 350px;
+  align-items: stretch;
+  justify-content: space-between;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .location {
+    color: #FFF;
+    font-family: "Poppins";
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 300;
+    display: flex;
+    justify-content: center;
+  }
+
+  .date {
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+
+  .mainContent {
+    .weatherInfo {
+      display: flex;
+      justify-content: space-around;
+
+      .weatherItem {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .info,
+      .temperature {
+        color: #F2F1F1;
+        font-family: Poppins;
+        font-size: 2rem;
+        font-style: normal;
+        font-weight: 300;
+        line-height: normal;
+      }
+    }
+
+    .secondaryInfo {
+      display: flex;
+      justify-content: space-evenly;
+
+      .feelLike {
+        font-size: 1.25rem;
+        color: #FFF;
+      }
+
+      .highLow {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+
+        span {
+          display: flex;
+          align-items: center;
+          justify-content: space-evenly;
+          font-size: 1rem;
+          color: #FFF;
+          margin: 0 1rem;
+        }
+      }
+
+    }
+
+  }
+
+  .infoContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .item {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+
+      .value {
+        display: flex;
+        align-items: center;
+        color: #FFF;
+        font-family: Poppins;
+        font-size: 0.875rem;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        text-transform: uppercase;
+        gap: 0 4px;
+      }
+
+      .name {
+        display: flex;
+        align-items: center;
+        color: #d5d5d5;
+        font-family: Poppins;
+        font-size: 0.75rem;
+      }
+    }
+  }
+
+  .CurrentWeatherContainer {
+    display: flex;
+    flex-wrap: wrap;
+
+    @media (max-width: 800px) {
+      justify-content: flex-start;
+    }
+  }
+
+  .CurrentWeatherStatus {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 1.5rem;
+    width: 25rem;
+
+    @media (max-width: 800px) {
+      margin: 2rem 0rem;
+    }
+
+    h4 {
+      font-weight: 600;
+      font-size: 1.25rem;
+      color: #396bae;
+      margin-bottom: 2rem;
+    }
+
+    span {
+      font-weight: 200;
+      font-size: 7rem;
+      color: #4a6fa1;
+      margin-left: 1.5rem;
+      line-height: 1;
+
+      sup {
+        line-height: 0;
+      }
+    }
+
+    h6 {
+      font-size: 1.375rem;
+      text-align: left;
+      color: #7b98b2;
+    }
+  }
+
+  .CurrentWeatherInfo {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 1rem;
+    margin-left: 2rem;
+  }
+
+  .FeelsLike {
+    font-size: 1.25rem;
+    color: #4a6fa1;
+  }
+
+  .HighLowContainer {
+    display: flex;
+    margin-bottom: 2rem;
+    width: 2rem;
+  }
+
+  .WeatherDegree {
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    font-size: 1.25rem;
+    color: #3a86ca;
+    margin-top: 0.8rem;
+    margin-right: 2.5rem;
+
+    svg {
+      fill: $notifyColor;
+      margin-right: 1rem;
+    }
+  }
+
+
+}

@@ -1,0 +1,88 @@
+@import '../../../styles/root';
+
+.containerWrapper {
+  background: #252323;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: toRem(10) toRem(24);
+
+    .logo a {
+      display: flex;
+      align-items: center;
+      color: rgb(194, 195, 197);
+      font-size: 1.2rem;
+      text-decoration: none;
+    }
+
+    .searchContainer {
+      min-width: toRem(320);
+      max-width: 50%;
+      //position: relative;
+    }
+
+    .menuList {
+      list-style: none;
+      display: flex;
+
+      .menuItem a {
+        margin: 0 toRem($padding2);
+        font-size: toRem($fontSize3);
+        font-style: normal;
+        text-decoration: none;
+        color: $white;
+        line-height: normal;
+
+        &.active {
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 20px;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: 0.4s;
+  border-radius: 55px;
+
+  span {
+    position: absolute;
+    height: 16px;
+    width: 18px;
+    left: 2px;
+    top: 2px;
+    transition: 0.4s;
+    border-radius: 44px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    font-size: 1rem;
+    font-weight: 500;
+    display: flex;
+
+    &.enabled {
+      padding-right: 15px;
+    }
+
+    &.disabled {
+      padding-left: 15px;
+    }
+  }
+
+  svg {
+    width: 20px;
+    fill: white;
+  }
+}

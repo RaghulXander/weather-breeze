@@ -1,13 +1,13 @@
 
 import { BrowserRouter } from 'react-router-dom';
-import Root from './Pages/Root';
+import Root from './components/pages/Root';
 import React from 'react';
 
 const App: React.FC = () => {
-	return (
-		<BrowserRouter>
-			<Root />
-		</BrowserRouter>
+  return (
+     <BrowserRouter>
+        <Root />
+      </BrowserRouter>
 	);
 }
 

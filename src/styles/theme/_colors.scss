@@ -1,0 +1,83 @@
+$primaryColor: #1976d2;
+$white: #fff;
+$black: #1E2839;
+$lightGrey: #f1f1f1;
+$primaryColor: #6651BA;
+
+// -------- new SuperNova Theme colors starts ---------- //
+$violet: #6651BA;
+$error: #e85347;
+$info: #aa6703;
+$grey: #00000040;
+$white: #fff;
+$button1: #9429b7;
+$button2: #5914c5;
+$button3: #4215A4;
+$background: #E5E5E5;
+
+$grey100: #111827;
+$grey90: #111827E5;
+$grey80: #111827CC;
+$grey70: #111827B2;
+$grey60: #11182799;
+$grey50: #11182799;
+$grey20: #11182733;
+$grey10: #1118271A;
+
+$green: #5EFB45;
+$yellow: #FFFDCA;
+$orange: #FFECCC;
+$blue: #0AC2FF;
+$lightblue: #DEF3FA;
+$purple: #C0ACDD;
+$violetDark: #2c1e73;
+
+// to generate gray shades
+
+$black: rgba(17, 24, 39, 0.9);
+
+$grey0: rgba(17, 24, 39, 0.0);
+$grey1: rgba(17, 24, 39, 0.1);
+$grey2: rgba(17, 24, 39, 0.2);
+$grey3: rgba(17, 24, 39, 0.3);
+$grey4: rgba(17, 24, 39, 0.4);
+$grey5: rgba(17, 24, 39, 0.5);
+$grey6: rgba(17, 24, 39, 0.6);
+$grey7: rgba(17, 24, 39, 0.7);
+$grey8: rgba(17, 24, 39, 0.8);
+$grey9: rgba(17, 24, 39, 0.9);
+
+$primary-color1: #9429B7;
+$primary-color2: #5914C5;
+$primary-color3: #4215A4;
+$primary-color4: #C86EA1;
+
+$secondary-color1: #B167FE;
+$secondary-color2: #8A1BFE;
+$secondary-color3: #FF4CB0;
+$secondary-color4: #E60080;
+$secondary-color5: #1AB4FF;
+$secondary-color6: #009AE6;
+
+$successColor1: #00AACC;
+$successColor2: #00CC88;
+
+$failureColor1: #FF007F;
+$failureColor2: #FF002B;
+
+$notifyColor1: #CC9900;
+$notifyColor2: #CCCC00;
+
+$primaryGradient: linear-gradient(271.33deg, $primary-color1 -7.5%, $primary-color2 79.33%, $primary-color3 101.53%);
+$primaryTextGradient: linear-gradient(275.76deg, $primary-color4 -16.95%, $primary-color3 113.4%);
+
+$secondaryGradient1: linear-gradient(135deg, #B167FE 0%, #8A1BFE 100%);
+$secondaryGradient2: linear-gradient(135deg, #FF4CB0 0%, #E60080 100%);
+$secondaryGradient3: linear-gradient(135deg, #1AB4FF 0%, #009AE6 100%);
+
+$successColor: linear-gradient(135deg, $successColor1 0%, $successColor2 100%);
+$failureColor: linear-gradient(135deg, $failureColor1 0%, $failureColor2 100%);
+$notifyColor: linear-gradient(135deg, $notifyColor1 0%, $notifyColor2 100%);
+
+$glassMorphicGradient: linear-gradient(80deg, rgba(91, 41, 171, 0.08), rgba(255, 255, 255, 0.2), rgba(91, 41, 171, 0.05), rgba(255, 255, 255, 0.2));
+$glassMorphicLoginGradient: linear-gradient(-45deg, rgba(148, 41, 183, 0.2), rgba(255, 255, 255, 0.1), rgba(89, 20, 197, 0.1));

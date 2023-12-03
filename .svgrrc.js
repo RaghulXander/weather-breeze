@@ -6,7 +6,7 @@ module.exports = {
 		width: "{props.size ?? 16}",
 		height: "{props.size ?? 16}",
 		fill: "{props.color}",
-		className: "{[styles['icon'], props.className ? props.className : undefined].join(' ')}",
+		className: "{[props.className ? props.className : undefined].join(' ')}",
 	},
 	replaceAttrValues: {
 		"#000": "{props.color}",
@@ -30,7 +30,6 @@ module.exports = {
 		// THIS IS AUTO GENERATED
 		import * as React from 'react';
 		import { IconProps } from "..";
-		import styles from "./Icon.module.scss";
 
 		const ${componentName} = (props: IconProps): JSX.Element => ${jsx};
 

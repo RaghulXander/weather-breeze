@@ -1,6 +1,7 @@
 // THIS IS AUTO GENERATED
 import * as React from "react";
-import { IconProps } from "..";
+
+import { IconProps } from "../../";
 const SvgWiFahrenheit = (props: IconProps): JSX.Element => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"

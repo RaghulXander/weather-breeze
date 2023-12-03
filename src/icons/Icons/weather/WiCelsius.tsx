@@ -1,6 +1,7 @@
 // THIS IS AUTO GENERATED
 import * as React from "react";
-import { IconProps } from "..";
+
+import { IconProps } from "../../";
 const SvgWiCelsius = (props: IconProps): JSX.Element => (
 	<svg
 		viewBox="0 0 40 40"

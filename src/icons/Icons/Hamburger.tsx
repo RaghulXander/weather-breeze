@@ -7,9 +7,7 @@ const SvgHamburger = (props: IconProps): JSX.Element => (
 		xmlSpace="preserve"
 		width={props.size ?? 16}
 		height={props.size ?? 16}
-		style={{
-			enableBackground: "new 0 0 32 32"
-		}}
+		style={{}}
 		viewBox="0 0 32 32"
 		fill={props.color}
 		className={[props.className ? props.className : undefined].join(" ")}

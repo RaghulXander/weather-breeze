@@ -1,4 +1,4 @@
-import { GoogleMap, useGoogleMap, useJsApiLoader } from "@react-google-maps/api";
+import { useJsApiLoader } from "@react-google-maps/api";
 import React, { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 

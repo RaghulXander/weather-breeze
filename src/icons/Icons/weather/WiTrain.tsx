@@ -1,13 +1,12 @@
 // THIS IS AUTO GENERATED
 import * as React from "react";
-import { IconProps } from "..";
+
+import { IconProps } from "../../";
 const SvgWiTrain = (props: IconProps): JSX.Element => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		xmlSpace="preserve"
-		style={{
-			enableBackground: "new 0 0 30 30"
-		}}
+		style={{}}
 		viewBox="0 0 30 30"
 		width={props.size ?? 16}
 		height={props.size ?? 16}

@@ -1,6 +1,6 @@
 import { Hamburger, Locate, WeatherLogo } from "icons/Icons";
-import { NavLink, useLocation } from "react-router-dom";
-import React, { useCallback } from "react";
+import { NavLink } from "react-router-dom";
+import React, { useCallback, useState } from "react";
 
 import { Location } from "store/models/weather.model";
 import { SearchAutoComplete } from "components/atoms";
@@ -19,10 +19,10 @@ const ERROR_CODES = {
 export const Header: React.FC = () => {
 	const [{ selectedMetric }, weatherActions] = useWeatherStore();
 	const [, forecastActions] = useForecastStore();
-	const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-	const [toggled, setToggled] = React.useState(selectedMetric === "Fahrenheit");
-	const [latitude, setLatitude] = React.useState(0);
-	const [longitude, setLongitude] = React.useState(0);
+	const [isMenuOpen, setIsMenuOpen] = useState(false);
+	const [toggled, setToggled] = useState(selectedMetric === "Fahrenheit");
+	const [latitude, setLatitude] = useState(0);
+	const [longitude, setLongitude] = useState(0);
 
 	const onSucess = (response: Location) => {
 		console.log("response", response);

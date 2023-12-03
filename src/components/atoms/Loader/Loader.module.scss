@@ -1,42 +1,41 @@
 .loadingContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: calc(100vh - 70px);
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(10px);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: calc(100vh - 70px);
+	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+	backdrop-filter: blur(10px);
 
-  .loadingDots {
-    display: flex;
-    align-items: center;
+	.loadingDots {
+		display: flex;
+		align-items: center;
 
-    .dot {
-      width: 16px;
-      height: 16px;
-      background-color: #e1003e;
-      border-radius: 50%;
-      margin-right: 10px;
-      animation: bounce 0.5s infinite;
-    }
+		.dot {
+			width: 16px;
+			height: 16px;
+			background-color: #e1003e;
+			border-radius: 50%;
+			margin-right: 10px;
+			animation: bounce 0.5s infinite;
+		}
 
-    .dot:nth-child(2) {
-      animation-delay: 0.3s;
-    }
+		.dot:nth-child(2) {
+			animation-delay: 0.3s;
+		}
 
-    .dot:nth-child(3) {
-      animation-delay: 0.6s;
-    }
-  }
+		.dot:nth-child(3) {
+			animation-delay: 0.6s;
+		}
+	}
 
-  @keyframes bounce {
+	@keyframes bounce {
+		0%,
+		100% {
+			transform: translateY(0);
+		}
 
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-
-    50% {
-      transform: translateY(-15px);
-    }
-  }
+		50% {
+			transform: translateY(-15px);
+		}
+	}
 }

@@ -1,15 +1,5 @@
-import {
-	Location,
-	WiCloudDown,
-	WiCloudUp,
-	WiDayWindy,
-	WiHumidity,
-	WiNightClear,
-	WiStrongWind,
-	WiThermometer,
-	WiTime3
-} from "icons/Icons";
-import React, { useCallback, useMemo } from "react";
+import { Location, WiThermometer, WiTime3 } from "icons/Icons";
+import React, { useCallback } from "react";
 
 import { WeatherResponse } from "store/models/weather.model";
 import { getTemperature } from "utils/helper";

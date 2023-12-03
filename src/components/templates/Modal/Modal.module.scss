@@ -1,86 +1,96 @@
 .overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease-in-out, visibility 0s linear 0.3s;
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	align-items: center;
+	justify-content: center;
+	opacity: 0;
+	visibility: hidden;
+	transition:
+		opacity 0.3s ease-in-out,
+		visibility 0s linear 0.3s;
 
-  &.open {
-    display: flex;
-    opacity: 1;
-    visibility: visible;
-    transition: opacity 0.3s ease-in-out, visibility 0s linear;
-    z-index: 23223;
+	&.open {
+		display: flex;
+		opacity: 1;
+		visibility: visible;
+		transition:
+			opacity 0.3s ease-in-out,
+			visibility 0s linear;
+		z-index: 23223;
 
-    .modal {
-      opacity: 1;
-      transform: translateY(0);
-      transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-    }
-  }
+		.modal {
+			opacity: 1;
+			transform: translateY(0);
+			transition:
+				opacity 0.3s ease-in-out,
+				transform 0.3s ease-in-out;
+		}
+	}
 
-  .modal {
-    position: relative;
-    background: transparent;
-    backdrop-filter: blur(20px);
-    padding: 45px 30px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    opacity: 0;
-    margin: 0;
-    transform: translateY(-50px);
-    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-    min-width: 60vw;
-    //height: 90vh;
-    width: 60vw;
-    background: linear-gradient(180deg, #10c99c 0%, #077989 100%);
-  }
+	.modal {
+		position: relative;
+		background: transparent;
+		backdrop-filter: blur(20px);
+		padding: 45px 30px;
+		border-radius: 5px;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+		opacity: 0;
+		margin: 0;
+		transform: translateY(-50px);
+		transition:
+			opacity 0.3s ease-in-out,
+			transform 0.3s ease-in-out;
+		min-width: 60vw;
+		//height: 90vh;
+		width: 60vw;
+		background: linear-gradient(180deg, #10c99c 0%, #077989 100%);
+	}
 
-  @media screen and (max-width: 600px) {
-    align-items: center;
+	@media screen and (max-width: 600px) {
+		align-items: center;
 
-    &.open {
-      align-items: center;
+		&.open {
+			align-items: center;
 
-      .modal {
-        transform: translateY(0);
-      }
-    }
+			.modal {
+				transform: translateY(0);
+			}
+		}
 
-    .modal {
-      width: 100%;
-      max-width: 350px;
-      border-radius: 10px;
-      transform: translateY(100%);
-    }
-  }
+		.modal {
+			width: 100%;
+			max-width: 350px;
+			border-radius: 10px;
+			transform: translateY(100%);
+		}
+	}
 }
 
 .closeButton {
-  position: absolute;
-  top: 10px;
-  right: 14px;
-  width: 32px;
-  height: 32px;
-  padding: 2px 4px;
-  font-size: 16px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #fff;
-  border: 1px solid transparent;
-  border-radius: 50px;
-  transition: background 0.1s, color 0.2s ease;
+	position: absolute;
+	top: 10px;
+	right: 14px;
+	width: 32px;
+	height: 32px;
+	padding: 2px 4px;
+	font-size: 16px;
+	background: none;
+	border: none;
+	cursor: pointer;
+	color: #fff;
+	border: 1px solid transparent;
+	border-radius: 50px;
+	transition:
+		background 0.1s,
+		color 0.2s ease;
 
-  &:hover {
-    background: #ad36cb;
-    color: #fff;
-  }
+	&:hover {
+		background: #ad36cb;
+		color: #fff;
+	}
 }

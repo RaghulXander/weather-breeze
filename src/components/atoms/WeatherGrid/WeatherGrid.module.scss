@@ -1,213 +1,213 @@
 @import "../../../styles/root";
 
 .container {
-  border-radius: 2rem;
-  background: linear-gradient(168deg, rgba(255, 255, 255, 0.18) 0.15%, rgba(255, 255, 255, 0.04) 97.5%);
-  box-shadow: 0px 0.25rem 1.5rem -0.0625rem rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(0.625rem);
-  padding: 1.5rem 2rem;
-  display: flex;
-  flex-direction: column;
-  min-height: 21.875rem;
-  align-items: stretch;
-  justify-content: space-between;
-  transition: all 0.3s ease;
-  /* Adding a transition effect for smoother changes */
+	border-radius: 2rem;
+	background: linear-gradient(168deg, rgba(255, 255, 255, 0.18) 0.15%, rgba(255, 255, 255, 0.04) 97.5%);
+	box-shadow: 0px 0.25rem 1.5rem -0.0625rem rgba(0, 0, 0, 0.25);
+	backdrop-filter: blur(0.625rem);
+	padding: 1.5rem 2rem;
+	display: flex;
+	flex-direction: column;
+	min-height: 21.875rem;
+	align-items: stretch;
+	justify-content: space-between;
+	transition: all 0.3s ease;
+	/* Adding a transition effect for smoother changes */
 
-  .header {
-    display: flex;
-    justify-content: space-between;
-  }
+	.header {
+		display: flex;
+		justify-content: space-between;
+	}
 
-  .location,
-  .date {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0 0.25rem;
-    color: #fff;
-    font-family: Poppins;
-    font-size: 1.25rem;
-    font-weight: 500;
-    line-height: 1.5;
-    transition: color 0.3s ease;
-    /* Adding transition for color change */
-  }
+	.location,
+	.date {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 0 0.25rem;
+		color: #fff;
+		font-family: Poppins;
+		font-size: 1.25rem;
+		font-weight: 500;
+		line-height: 1.5;
+		transition: color 0.3s ease;
+		/* Adding transition for color change */
+	}
 
-  .location {
-    font-size: 1rem;
-  }
+	.location {
+		font-size: 1rem;
+	}
 
-  .mainContent {
-    .weatherInfo {
-      display: flex;
-      justify-content: space-around;
+	.mainContent {
+		.weatherInfo {
+			display: flex;
+			justify-content: space-around;
 
-      .weatherItem {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        justify-content: center;
+			.weatherItem {
+				display: flex;
+				align-items: center;
+				flex-direction: column;
+				justify-content: center;
 
-        .block {
-          display: flex;
-          justify-content: center;
-          align-items: center;
+				.block {
+					display: flex;
+					justify-content: center;
+					align-items: center;
 
-          .info,
-          .temperature {
-            color: #f2f1f1;
-            font-family: Poppins;
-            font-size: 2.5rem;
-            font-weight: 300;
-            line-height: normal;
-            transition: color 0.3s ease;
-            /* Adding transition for color change */
-          }
-        }
+					.info,
+					.temperature {
+						color: #f2f1f1;
+						font-family: Poppins;
+						font-size: 2.5rem;
+						font-weight: 300;
+						line-height: normal;
+						transition: color 0.3s ease;
+						/* Adding transition for color change */
+					}
+				}
 
-        .secondaryInfo {
-          display: flex;
-          justify-content: space-evenly;
+				.secondaryInfo {
+					display: flex;
+					justify-content: space-evenly;
 
-          .feelLike {
-            font-size: 1.25rem;
-            color: #fff;
-          }
+					.feelLike {
+						font-size: 1.25rem;
+						color: #fff;
+					}
 
-          .highLow {
-            display: flex;
-            align-items: center;
-            justify-content: space-evenly;
+					.highLow {
+						display: flex;
+						align-items: center;
+						justify-content: space-evenly;
 
-            span {
-              display: flex;
-              align-items: center;
-              justify-content: space-evenly;
-              font-size: 1rem;
-              color: #fff;
-              margin: 0 1rem;
-            }
-          }
-        }
-      }
-    }
-  }
+						span {
+							display: flex;
+							align-items: center;
+							justify-content: space-evenly;
+							font-size: 1rem;
+							color: #fff;
+							margin: 0 1rem;
+						}
+					}
+				}
+			}
+		}
+	}
 
-  .infoContainer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+	.infoContainer {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
 
-    .item {
-      display: flex;
-      align-items: center;
-      flex-direction: column;
+		.item {
+			display: flex;
+			align-items: center;
+			flex-direction: column;
 
-      .value {
-        display: flex;
-        align-items: center;
-        color: #fff;
-        font-family: Poppins;
-        font-size: 0.875rem;
-        font-weight: 500;
-        line-height: normal;
-        text-transform: uppercase;
-        gap: 0 0.25rem;
-      }
+			.value {
+				display: flex;
+				align-items: center;
+				color: #fff;
+				font-family: Poppins;
+				font-size: 0.875rem;
+				font-weight: 500;
+				line-height: normal;
+				text-transform: uppercase;
+				gap: 0 0.25rem;
+			}
 
-      .name {
-        display: flex;
-        align-items: center;
-        color: #d5d5d5;
-        font-family: Poppins;
-        font-size: 0.75rem;
-      }
-    }
-  }
+			.name {
+				display: flex;
+				align-items: center;
+				color: #d5d5d5;
+				font-family: Poppins;
+				font-size: 0.75rem;
+			}
+		}
+	}
 }
 
 @media (max-width: 768px) {
-  .container {
-    border-radius: 0;
-    padding: 1rem 0.75rem;
-    display: flex;
-    background: transparent;
+	.container {
+		border-radius: 0;
+		padding: 1rem 0.75rem;
+		display: flex;
+		background: transparent;
 
-    .header {
-      display: flex;
-      justify-content: space-between;
-    }
+		.header {
+			display: flex;
+			justify-content: space-between;
+		}
 
-    .location,
-    .date {
-      font-size: 0.875rem;
-    }
+		.location,
+		.date {
+			font-size: 0.875rem;
+		}
 
-    .mainContent {
-      .weatherInfo {
-        display: flex;
-        justify-content: space-around;
-        flex-direction: column;
+		.mainContent {
+			.weatherInfo {
+				display: flex;
+				justify-content: space-around;
+				flex-direction: column;
 
-        .weatherItem {
-          flex-direction: row;
-          justify-content: space-evenly;
+				.weatherItem {
+					flex-direction: row;
+					justify-content: space-evenly;
 
-          .block {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+					.block {
+						display: flex;
+						justify-content: center;
+						align-items: center;
 
-            .info,
-            .temperature {
-              font-size: 1.25rem;
-            }
-          }
+						.info,
+						.temperature {
+							font-size: 1.25rem;
+						}
+					}
 
-          .secondaryInfo {
-            display: flex;
-            justify-content: space-evenly;
+					.secondaryInfo {
+						display: flex;
+						justify-content: space-evenly;
 
-            .feelLike {
-              font-size: 0.875rem;
-              color: #fff;
-            }
+						.feelLike {
+							font-size: 0.875rem;
+							color: #fff;
+						}
 
-            .highLow {
-              display: flex;
-              align-items: center;
-              justify-content: space-evenly;
+						.highLow {
+							display: flex;
+							align-items: center;
+							justify-content: space-evenly;
 
-              span {
-                display: flex;
-                align-items: center;
-                justify-content: space-evenly;
-                font-size: 0.75rem;
-                color: #fff;
-                margin: 0 1rem;
-              }
-            }
-          }
-        }
-      }
-    }
+							span {
+								display: flex;
+								align-items: center;
+								justify-content: space-evenly;
+								font-size: 0.75rem;
+								color: #fff;
+								margin: 0 1rem;
+							}
+						}
+					}
+				}
+			}
+		}
 
-    .infoContainer {
-      flex-wrap: wrap;
-      gap: 15px;
+		.infoContainer {
+			flex-wrap: wrap;
+			gap: 15px;
 
-      .item {
-        width: 45%;
+			.item {
+				width: 45%;
 
-        .value {
-          font-size: 0.75rem;
-        }
+				.value {
+					font-size: 0.75rem;
+				}
 
-        .name {
-          font-size: 0.75rem;
-        }
-      }
-    }
-  }
+				.name {
+					font-size: 0.75rem;
+				}
+			}
+		}
+	}
 }

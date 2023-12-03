@@ -1,62 +1,62 @@
 .tileWrapper {
-  display: flex;
-  cursor: pointer;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 0.75rem;
-  padding: 0.5rem 1rem;
-  background: #fff;
-  border-radius: 25px;
-  background: linear-gradient(180deg, #10c99c 0%, #077989 100%);
-  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-  border-radius: 12px;
-  transform: scale(1);
-  transition: transform 0.3s ease-out;
+	display: flex;
+	cursor: pointer;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 0.75rem;
+	padding: 0.5rem 1rem;
+	background: #fff;
+	border-radius: 25px;
+	background: linear-gradient(180deg, #10c99c 0%, #077989 100%);
+	box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+	border-radius: 12px;
+	transform: scale(1);
+	transition: transform 0.3s ease-out;
 
-  .timeText {
-    padding: 0.25rem 0;
-    text-align: center;
-    color: #fff;
-    font-family: Poppins;
-    font-size: 0.75rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-  }
+	.timeText {
+		padding: 0.25rem 0;
+		text-align: center;
+		color: #fff;
+		font-family: Poppins;
+		font-size: 0.75rem;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+	}
 
-  .weather {
-    font-family: Poppins;
-    font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    color: #fff;
-  }
+	.weather {
+		font-family: Poppins;
+		font-size: 0.875rem;
+		font-style: normal;
+		font-weight: 500;
+		line-height: normal;
+		color: #fff;
+	}
 
-  &:hover {
-    transform: scale(1.25);
-    //transform: translateY(-10px);
-  }
+	&:hover {
+		transform: scale(1.25);
+		//transform: translateY(-10px);
+	}
 }
 
 @media (max-width: 767px) {
-  .tileWrapper {
-    margin: 0.5rem;
-    padding: 0.25rem 0.75rem;
-    border-radius: 8px;
-    width: calc(25% - 1rem);
+	.tileWrapper {
+		margin: 0.5rem;
+		padding: 0.25rem 0.75rem;
+		border-radius: 8px;
+		width: calc(25% - 1rem);
 
-    .timeText {
-      font-size: 0.625rem;
-    }
+		.timeText {
+			font-size: 0.625rem;
+		}
 
-    .weather {
-      font-size: 0.75rem;
-    }
+		.weather {
+			font-size: 0.75rem;
+		}
 
-    .icon {
-      width: 32px;
-    }
-  }
+		.icon {
+			width: 32px;
+		}
+	}
 }

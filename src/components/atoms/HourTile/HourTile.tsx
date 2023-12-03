@@ -9,7 +9,7 @@ type THourTileProps = {
 };
 
 export const HourTile: React.FC<THourTileProps> = ({ icon, time, weatherUnit, onClick }) => {
-	const iconUrl = `http://openweathermap.org/img/w/${icon}.png`;
+	const iconUrl = `https://openweathermap.org/img/w/${icon}.png`;
 	return (
 		<div className={styles.tileWrapper} onClick={onClick}>
 			<span className={styles.timeText}>{time}</span>

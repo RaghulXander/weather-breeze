@@ -13,8 +13,6 @@ export const useGeolocation = () => {
 	const [longitude, setLongitude] = useState<number | null>(0);
 
 	const onSuccess = (response: Location) => {
-		console.log("response", response);
-
 		if (latitude !== response.coords.latitude || longitude !== response.coords.longitude) {
 			setLatitude(response.coords.latitude);
 			setLongitude(response.coords.longitude);
@@ -28,7 +26,6 @@ export const useGeolocation = () => {
 	}, []);
 
 	const onError = (error: GeolocationPositionError) => {
-		console.error(error);
 		switch (error.code) {
 			case ERROR_CODES.PERMISSION_DENIED:
 				toast.error("Please allow location access and try again by clicking close", {
@@ -44,7 +41,7 @@ export const useGeolocation = () => {
 			case ERROR_CODES.TIMEOUT:
 			default:
 				toast.error(error.message);
-				console.error(error.message);
+				//console.error(error.message);
 				break;
 		}
 	};
@@ -53,7 +50,6 @@ export const useGeolocation = () => {
 		return new Promise((resolve) => {
 			navigator.geolocation.getCurrentPosition(
 				(response: Location) => {
-					console.log("in");
 					if (latitude !== response.coords.latitude || longitude !== response.coords.longitude) {
 						setLatitude(response.coords.latitude);
 						setLongitude(response.coords.longitude);

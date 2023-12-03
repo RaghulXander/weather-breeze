@@ -50,7 +50,7 @@ export const InsightViewer: React.FC<WeatherComponentProps> = ({ data }) => {
 				<div className={styles.value}>
 					<img
 						className={styles.weatherIcon}
-						src={`http://openweathermap.org/img/wn/${data.weather[0].icon}.png`}
+						src={`https://openweathermap.org/img/wn/${data.weather[0].icon}.png`}
 						alt={data.weather[0].description}
 					/>
 					<div className={styles.description}>{data.weather[0].description}</div>

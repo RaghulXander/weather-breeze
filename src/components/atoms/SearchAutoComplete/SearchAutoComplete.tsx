@@ -138,7 +138,6 @@ export const SearchAutoComplete = () => {
 			const { lat, lng } = getLatLng(results[0]);
 			weatherActions.getWeather({ latitude: lat, longitude: lng }, description);
 			forecastActions.getForecast({ latitude: lat, longitude: lng });
-			console.log("Coordinates: ", { lat, lng });
 		});
 	};
 

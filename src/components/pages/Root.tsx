@@ -14,7 +14,6 @@ import useSwipeableMessage from "hooks/useSwipeMessage";
 const DashboardView = React.lazy(async () => import("./Dashboard/Dashboard"));
 
 const Root: React.FC = () => {
-	console.log(process.env.REACT_APP_GOOGLE_MAPS_API_KEY);
 	const { showMessage } = useSwipeableMessage();
 
 	const { isLoaded } = useJsApiLoader({

@@ -43,7 +43,7 @@ const actions = {
 
 				if (typeof coord === "object") {
 					const response = await axios.get(
-						`https://api.openweathermap.org/data/2.5/weather?&units=metric&lat=${coord.latitude}&lon=${coord.longitude}&appid=20c4bd51cf84f12ebda1a2d7f69862bc`
+						`https://api.openweathermap.org/data/2.5/weather?&units=metric&lat=${coord.latitude}&lon=${coord.longitude}&appid=d857d025c6e16813c0a2c83d4f46029f`
 					);
 					setState({
 						...getState(),
@@ -54,7 +54,7 @@ const actions = {
 					});
 				} else {
 					const response = await axios.get(
-						`https://api.openweathermap.org/data/2.5/weather?q=${coord}&units=metric&appid=20c4bd51cf84f12ebda1a2d7f69862bc`
+						`https://api.openweathermap.org/data/2.5/weather?q=${coord}&units=metric&appid=d857d025c6e16813c0a2c83d4f46029f`
 					);
 					const data: WeatherResponse = response.data;
 					if (data) {
@@ -63,7 +63,7 @@ const actions = {
 						setState({
 							...getState(),
 							error: {
-								message: "Location couldn't be retreived"
+								message: "Location couldn't be retrieved"
 							}
 						});
 					}

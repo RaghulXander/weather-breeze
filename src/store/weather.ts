@@ -43,7 +43,7 @@ const actions = {
 
 				if (typeof coord === "object") {
 					const response = await axios.get(
-						`https://api.openweathermap.org/data/2.5/weather?&units=metric&lat=${coord.latitude}&lon=${coord.longitude}&appid=d857d025c6e16813c0a2c83d4f46029f`
+						`https://api.openweathermap.org/data/2.5/weather?&units=metric&lat=${coord.latitude}&lon=${coord.longitude}&appid=${REACT_APP_WEATHER_API_KEY}`
 					);
 					setState({
 						...getState(),

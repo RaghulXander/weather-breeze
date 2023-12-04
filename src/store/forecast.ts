@@ -39,7 +39,7 @@ const actions = {
 				});
 				if (typeof coord === "object") {
 					const response = await axios.get(
-						`https://api.openweathermap.org/data/2.5/forecast?&units=metric&lat=${coord.latitude}&lon=${coord.longitude}&appid=20c4bd51cf84f12ebda1a2d7f69862bc`
+						`https://api.openweathermap.org/data/2.5/forecast?&units=metric&lat=${coord.latitude}&lon=${coord.longitude}&appid=d857d025c6e16813c0a2c83d4f46029f`
 					);
 					setState({
 						...getState(),

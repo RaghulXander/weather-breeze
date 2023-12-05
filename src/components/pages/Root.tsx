@@ -1,24 +1,25 @@
-import { useJsApiLoader } from "@react-google-maps/api";
-import React, { Suspense, useEffect } from "react";
+import React, { Suspense, lazy, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
-import { toast, ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 
 import { Header } from "../templates/Header/Header";
 import HeroImage from "icons/hero.png";
 // atoms
 import { Loader } from "../atoms/Loader/Loader";
 import styles from "./Dashboard/Dashboard.module.scss";
+import { useJsApiLoader } from "@react-google-maps/api";
 import useSwipeableMessage from "hooks/useSwipeMessage";
 
 // Lazy load application chunks
-const DashboardView = React.lazy(async () => import("./Dashboard/Dashboard"));
+const DashboardView = lazy(async () => import("./Dashboard/Dashboard"));
 
 const Root: React.FC = () => {
 	const { showMessage } = useSwipeableMessage();
 
-	const { isLoaded } = useJsApiLoader({
+	const { isLoaded, loadError } = useJsApiLoader({
 		id: "google-map-script",
-		googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY ?? ""
+		googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY ?? "",
+		libraries: ["places"]
 	});
 
 	useEffect(() => {
@@ -28,6 +29,10 @@ const Root: React.FC = () => {
 	}, [showMessage]);
 
 	if (!isLoaded) return <Loader />;
+
+	if (loadError) {
+		return <div>Error loading maps</div>;
+	}
 
 	return (
 		<div

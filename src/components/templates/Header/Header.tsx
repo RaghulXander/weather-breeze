@@ -1,34 +1,42 @@
 import { Hamburger, Locate, WeatherLogo } from "icons/Icons";
-import { NavLink } from "react-router-dom";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useState } from "react";
 
-import { Location } from "store/models/weather.model";
+import { NavLink } from "react-router-dom";
 import { SearchAutoComplete } from "components/atoms";
 import Switch from "react-switch";
 import styles from "./Header.module.scss";
+import { toast } from "react-toastify";
 import { useForecastStore } from "store/forecast";
-import { useWeatherStore } from "store/weather";
 import { useGeolocation } from "hooks/useGeoLocation";
+import { useWeatherStore } from "store/weather";
 
 export const Header: React.FC = () => {
-	const [{ selectedMetric }, weatherActions] = useWeatherStore();
+	const [{ selectedMetric, currentWeather }, weatherActions] = useWeatherStore();
+	const [locationReFetch, setInitLocationFetch] = useState(true);
 	const [, forecastActions] = useForecastStore();
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const [toggled, setToggled] = useState(selectedMetric === "Fahrenheit");
-	const locationFetched = useRef(false);
 	const { locateMe } = useGeolocation();
 
 	useEffect(() => {
 		const fetchData = async () => {
-			const [latitude, longitude] = await locateMe();
-			if (latitude && longitude && !locationFetched.current) {
+			const [latitude, longitude, notChanged] = await locateMe();
+			if (notChanged && currentWeather?.latitude === latitude && currentWeather?.longitude === longitude) {
+				toast.warn("Looks like the location haven't changed");
+				return;
+			}
+			if (latitude && longitude && locationReFetch) {
 				weatherActions.getWeather({ latitude, longitude });
 				forecastActions.getForecast({ latitude, longitude });
-				locationFetched.current = true;
 			}
 		};
-		fetchData();
-	}, [locateMe]);
+
+		console.log("locationReFetch", locationReFetch);
+		if (locationReFetch) {
+			fetchData();
+			setInitLocationFetch(false);
+		}
+	}, [locateMe, locationReFetch, weatherActions, forecastActions]);
 
 	return (
 		<header className={styles.containerWrapper}>
@@ -49,7 +57,12 @@ export const Header: React.FC = () => {
 						<SearchAutoComplete />
 					</div>
 					<div className={styles.controlActions}>
-						<button className={styles.locateMe} onClick={locateMe}>
+						<button
+							className={styles.locateMe}
+							onClick={() => {
+								setInitLocationFetch(true);
+							}}
+						>
 							<Locate size={24} color="#fff" />
 							<span>Locate me</span>
 						</button>

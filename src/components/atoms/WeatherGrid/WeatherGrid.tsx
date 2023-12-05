@@ -14,7 +14,7 @@ import React, { useCallback, useMemo } from "react";
 import { IconProps } from "icons";
 import { WeatherResponse } from "../../../store/models/weather.model";
 import { getTemperature } from "../../../utils/helper";
-import getWeatherIconByCode from "utils/getIconByCode";
+import { getWeatherIconByCode } from "utils/getIconByCode";
 import styles from "./WeatherGrid.module.scss";
 import { useWeatherStore } from "store/weather";
 

@@ -1,4 +1,4 @@
-import { Coords, Metrics, StateContext, WeatherResponse, WeatherState } from "./models/weather.model";
+import { Coords, Metrics, StateContext, WeatherResponse } from "./models/weather.model";
 import { StoreActionApi, createHook, createStore } from "react-sweet-state";
 
 import axios from "axios";
@@ -8,7 +8,7 @@ type StateType = StateContext<{ weather: WeatherResponse | null }> & {
 	error: {
 		message: string;
 	};
-	currentWeather: WeatherState | null;
+	currentWeather: Coords | null;
 	status: string | null;
 	hasLoaded: boolean;
 	selectedLocation: string;
@@ -43,14 +43,15 @@ const actions = {
 
 				if (typeof coord === "object") {
 					const response = await axios.get(
-						`https://api.openweathermap.org/data/2.5/weather?&units=metric&lat=${coord.latitude}&lon=${coord.longitude}&appid=${REACT_APP_WEATHER_API_KEY}`
+						`https://api.openweathermap.org/data/2.5/weather?&units=metric&lat=${coord.latitude}&lon=${coord.longitude}&appid=d857d025c6e16813c0a2c83d4f46029f`
 					);
 					setState({
 						...getState(),
 						hasLoaded: true,
 						loading: false,
 						state: { weather: { ...response.data } },
-						selectedLocation: description
+						selectedLocation: description,
+						currentWeather: coord
 					});
 				} else {
 					const response = await axios.get(

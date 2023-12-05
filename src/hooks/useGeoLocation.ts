@@ -1,6 +1,7 @@
 import { useCallback, useState } from "react";
-import { toast } from "react-toastify";
+
 import { Location } from "store/models/weather.model";
+import { toast } from "react-toastify";
 
 export const useGeolocation = () => {
 	const ERROR_CODES = {
@@ -46,7 +47,7 @@ export const useGeolocation = () => {
 		}
 	};
 
-	const locateMe = useCallback((): Promise<[number | null, number | null]> => {
+	const locateMe = useCallback((): Promise<[number | null, number | null, boolean]> => {
 		return new Promise((resolve) => {
 			navigator.geolocation.getCurrentPosition(
 				(response: Location) => {
@@ -54,12 +55,13 @@ export const useGeolocation = () => {
 						setLatitude(response.coords.latitude);
 						setLongitude(response.coords.longitude);
 					}
-					resolve([response.coords.latitude, response.coords.longitude]);
+					const notChanged = response.coords.latitude === latitude && response.coords.latitude === latitude;
+					resolve([response.coords.latitude, response.coords.longitude, notChanged]);
 				},
 				(error) => {
 					onError(error);
 					// adding default values when some browsers block location and page goes blank
-					resolve([12.3012693, 76.6392175]);
+					resolve([12.3012693, 76.6392175, false]);
 				}
 			);
 		});

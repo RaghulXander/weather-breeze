@@ -2,8 +2,8 @@
 import React, { KeyboardEvent, useState } from "react";
 import usePlacesAutocomplete, { getGeocode, getLatLng } from "use-places-autocomplete";
 
-import ReactDOM from "react-dom";
 import { Search } from "icons/Icons";
+import { createPortal } from "react-dom";
 import styles from "./SearchAutoComplete.module.scss";
 import useClickOutside from "hooks/useClickOutside";
 import { useForecastStore } from "store/forecast";
@@ -71,7 +71,7 @@ const SuggestionOptions: React.FC<DropdownOptionsProps> = ({
 		</div>
 	);
 
-	return ReactDOM.createPortal(optionList, portalRoot);
+	return createPortal(optionList, portalRoot);
 };
 
 export const SearchAutoComplete = () => {
